@@ -286,13 +286,16 @@ public class Register extends javax.swing.JFrame {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        String insertSql = "INSERT INTO users (name, username, email, password, role) VALUES (?, ?, ?, ?, ?)";
+        String status = (userType.equals("Admin") ? "Active" : "Pending");
+        
+        String insertSql = "INSERT INTO users (name, username, email, password, role, status) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement pst = cn.prepareStatement(insertSql)) {
             pst.setString(1, name);
             pst.setString(2, username);
             pst.setString(3, email);
             pst.setString(4, password); 
             pst.setString(5, userType);
+            pst.setString(6, status);
             
             int result = pst.executeUpdate();
             if (result == 1) {

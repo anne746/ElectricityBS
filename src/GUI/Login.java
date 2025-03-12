@@ -6,7 +6,6 @@
 package GUI;
 
 import config.connectDB;
-import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -163,7 +162,7 @@ public class Login extends javax.swing.JFrame {
         connectDB con = new connectDB();
         Connection cn = con.getConnection(); 
 
-        String sql = "SELECT password, role FROM users WHERE username = ?";
+        String sql = "SELECT password, role, status FROM users WHERE username = ?";
 
         try {
             PreparedStatement pst = cn.prepareStatement(sql);
@@ -173,17 +172,23 @@ public class Login extends javax.swing.JFrame {
             if (rs.next()) { 
                 String storedPassword = rs.getString("password");
 
-                if (storedPassword.equals(password)) {  
-                    JOptionPane.showMessageDialog(this, "Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                    
+                if (storedPassword.equals(password)) {
                     String userType = rs.getString("role");
-                    if(userType.equals("Admin")){
-                        new AdminDashboard().setVisible(true);
-                    }else if(userType.equals("User")){
-                        new UserDashboard().setVisible(true);
-                    }
+                    String status = rs.getString("status");
                     
-                    this.dispose();
+                    if(status.equals("Active")){
+                        JOptionPane.showMessageDialog(this, "Login successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        
+                        if(userType.equals("Admin")){
+                            new AdminDashboard().setVisible(true);
+                        }else if(userType.equals("User")){
+                            new UserDashboard().setVisible(true);
+                        }
+                        this.dispose();
+                        
+                    }else {
+                        JOptionPane.showMessageDialog(this, "Account Pending for Approval!", "Inactive Account", JOptionPane.WARNING_MESSAGE);
+                    }
 
                 } else {
                     JOptionPane.showMessageDialog(null, "Incorrect password.", "Login Error", JOptionPane.ERROR_MESSAGE);

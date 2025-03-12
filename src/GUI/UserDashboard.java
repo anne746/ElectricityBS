@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
-/**
- *
- * @author manny
- */
 public class UserDashboard extends javax.swing.JFrame {
 
     /**
@@ -43,7 +34,7 @@ public class UserDashboard extends javax.swing.JFrame {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 170, 30));
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 70, 720, 100);
+        jPanel2.setBounds(0, 50, 720, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

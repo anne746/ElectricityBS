@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
-/**
- *
- * @author manny
- */
+import config.connectDB;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
+
 public class AdminDashboard extends javax.swing.JFrame {
 
     /**
@@ -16,6 +13,17 @@ public class AdminDashboard extends javax.swing.JFrame {
      */
     public AdminDashboard() {
         initComponents();
+        display_data();
+    }
+    
+    private void display_data(){
+        try {
+            connectDB dbcon = new connectDB();
+            ResultSet result = dbcon.getData("SELECT id AS 'ID', name AS 'Full Name', username AS 'Username', email AS 'Email Address', status AS 'Account Status' FROM users WHERE role = 'user'");
+            usersTbl.setModel(DbUtils.resultSetToTableModel(result));
+        }catch (SQLException e) {
+            System.out.println("Can't Connect to Database: " + e.getMessage());
+        }
     }
 
     /**
@@ -29,7 +37,10 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        usersTbl = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,13 +48,44 @@ public class AdminDashboard extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 40, 720, 60);
+
+        usersTbl.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(usersTbl);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 110, 700, 320);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("ADMIN DASHBOARD");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 170, 30));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 170, 30);
 
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 70, 720, 100);
+        jButton1.setText("Change Status");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(600, 440, 110, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,6 +101,47 @@ public class AdminDashboard extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        int row = usersTbl.getSelectedRow();
+
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a user to toggle status.", "No Selection", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String id = usersTbl.getValueAt(row, 0).toString(); // Get User ID
+        String currentStatus = usersTbl.getValueAt(row, 4).toString(); // Get current status
+
+        String newStatus;
+
+        // Handle "Pending" status first
+        if (currentStatus.equalsIgnoreCase("Pending")) {
+            newStatus = "Active"; // First toggle sets it to Active
+        } else {
+            // Toggle between "Active" and "Inactive"
+            newStatus = currentStatus.equalsIgnoreCase("Active") ? "Inactive" : "Active";
+        }
+
+        int confirm = JOptionPane.showConfirmDialog(this, 
+            "Change status to " + newStatus + "?", 
+            "Confirm Status Change", 
+            JOptionPane.YES_NO_OPTION);
+
+        if (confirm != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        if (connectDB.updateDatabase("UPDATE users SET status = '" + newStatus + "' WHERE id = '" + id + "'")) {
+            usersTbl.setValueAt(newStatus, row, 4);
+        } else {
+            JOptionPane.showMessageDialog(this, "Failed to update status.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -97,8 +180,11 @@ public class AdminDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable usersTbl;
     // End of variables declaration//GEN-END:variables
 }
