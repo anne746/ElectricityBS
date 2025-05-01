@@ -26,6 +26,7 @@ public class Register extends javax.swing.JFrame {
      */
     public Register() {
         initComponents();
+         setTitle("Electric Bill System");
     }
 
     /**
@@ -37,297 +38,230 @@ public class Register extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        RegisterForm = new javax.swing.JPanel();
-        nameField = new javax.swing.JTextField();
+        bg = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        usernameField = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        emailField = new javax.swing.JTextField();
-        passwordField = new javax.swing.JPasswordField();
+        firstnamefield = new javax.swing.JTextField();
+        loginbtn = new javax.swing.JLabel();
+        registerbtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        confPassField = new javax.swing.JPasswordField();
-        typeField = new javax.swing.JComboBox<>();
+        passwordfield = new javax.swing.JPasswordField();
+        lastnamefield = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        addressfield = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        registerButton = new javax.swing.JButton();
-        to_register = new javax.swing.JLabel();
+        emailfield = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        rolecombobox = new javax.swing.JComboBox<>();
+        usernamefield1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(134, 206, 203));
-        jPanel1.setLayout(null);
+        bg.setBackground(new java.awt.Color(244, 246, 249));
+        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        RegisterForm.setBackground(new java.awt.Color(134, 206, 203));
-        RegisterForm.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Register", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Georgia", 1, 36), new java.awt.Color(19, 122, 127))); // NOI18N
-        RegisterForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        RegisterForm.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Create New Account");
+        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 900, -1));
 
-        nameField.setBackground(new java.awt.Color(190, 200, 209));
-        nameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFieldActionPerformed(evt);
-            }
-        });
-        RegisterForm.add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 160, 30));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("First Name");
+        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Full Name :");
-        RegisterForm.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 80, 30));
+        firstnamefield.setBackground(new java.awt.Color(255, 255, 255));
+        firstnamefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        firstnamefield.setPreferredSize(new java.awt.Dimension(350, 40));
+        bg.add(firstnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("Username :");
-        RegisterForm.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 80, 30));
-
-        usernameField.setBackground(new java.awt.Color(190, 200, 209));
-        usernameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameFieldActionPerformed(evt);
-            }
-        });
-        RegisterForm.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 160, 30));
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Password :");
-        RegisterForm.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 90, 30));
-
-        emailField.setBackground(new java.awt.Color(190, 200, 209));
-        emailField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailFieldActionPerformed(evt);
-            }
-        });
-        RegisterForm.add(emailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 160, 30));
-
-        passwordField.setBackground(new java.awt.Color(190, 200, 209));
-        passwordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordFieldActionPerformed(evt);
-            }
-        });
-        RegisterForm.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 160, 30));
-
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("User Type :");
-        RegisterForm.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 90, 30));
-
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Confirm Password :");
-        RegisterForm.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 120, 30));
-
-        confPassField.setBackground(new java.awt.Color(190, 200, 209));
-        confPassField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confPassFieldActionPerformed(evt);
-            }
-        });
-        RegisterForm.add(confPassField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 160, 30));
-
-        typeField.setBackground(new java.awt.Color(102, 102, 102));
-        typeField.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
-        typeField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select User Type", "Admin", "User" }));
-        RegisterForm.add(typeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 160, 30));
-
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("Email :");
-        RegisterForm.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 80, 30));
-
-        registerButton.setBackground(new java.awt.Color(19, 122, 127));
-        registerButton.setText("Register");
-        registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        loginbtn.setBackground(new java.awt.Color(46, 134, 222));
+        loginbtn.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        loginbtn.setForeground(new java.awt.Color(46, 134, 222));
+        loginbtn.setText("Login");
+        loginbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registerButtonMouseClicked(evt);
+                loginbtnMouseClicked(evt);
             }
         });
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
+        bg.add(loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 550, -1, -1));
+
+        registerbtn.setBackground(new java.awt.Color(46, 134, 222));
+        registerbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        registerbtn.setForeground(new java.awt.Color(255, 255, 255));
+        registerbtn.setText("Register");
+        registerbtn.setBorder(null);
+        registerbtn.setPreferredSize(new java.awt.Dimension(350, 40));
+        registerbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
+                registerbtnActionPerformed(evt);
             }
         });
-        RegisterForm.add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 120, 30));
+        bg.add(registerbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, -1, -1));
 
-        to_register.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        to_register.setForeground(new java.awt.Color(0, 0, 204));
-        to_register.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        to_register.setText("Login");
-        to_register.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                to_registerMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                to_registerMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                to_registerMouseExited(evt);
-            }
-        });
-        RegisterForm.add(to_register, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 50, -1));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Password");
+        bg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Already have an Account?");
-        RegisterForm.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 150, -1));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Already have an account?");
+        bg.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 550, -1, -1));
 
-        jPanel1.add(RegisterForm);
-        RegisterForm.setBounds(180, 20, 370, 430);
+        passwordfield.setBackground(new java.awt.Color(255, 255, 255));
+        passwordfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        passwordfield.setPreferredSize(new java.awt.Dimension(350, 40));
+        bg.add(passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, -1));
+
+        lastnamefield.setBackground(new java.awt.Color(255, 255, 255));
+        lastnamefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        lastnamefield.setPreferredSize(new java.awt.Dimension(350, 40));
+        bg.add(lastnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Last Name");
+        bg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, -1, -1));
+
+        addressfield.setBackground(new java.awt.Color(255, 255, 255));
+        addressfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        addressfield.setPreferredSize(new java.awt.Dimension(350, 40));
+        bg.add(addressfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Address");
+        bg.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+
+        emailfield.setBackground(new java.awt.Color(255, 255, 255));
+        emailfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        emailfield.setPreferredSize(new java.awt.Dimension(350, 40));
+        bg.add(emailfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Role");
+        bg.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Email");
+        bg.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, -1, -1));
+
+        rolecombobox.setBackground(new java.awt.Color(255, 255, 255));
+        rolecombobox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        rolecombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Role", "User", "Admin", " " }));
+        rolecombobox.setPreferredSize(new java.awt.Dimension(350, 40));
+        bg.add(rolecombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 350, 40));
+
+        usernamefield1.setBackground(new java.awt.Color(255, 255, 255));
+        usernamefield1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        usernamefield1.setPreferredSize(new java.awt.Dimension(350, 40));
+        bg.add(usernamefield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Username");
+        bg.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameFieldActionPerformed
+    private void loginbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbtnMouseClicked
+      new Login().setVisible(true);
+      this.dispose();
+    }//GEN-LAST:event_loginbtnMouseClicked
 
-    private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usernameFieldActionPerformed
+    private void registerbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerbtnActionPerformed
+        String firstname = firstnamefield.getText().trim();
+        String lastname = lastnamefield.getText().trim();
+        String address = addressfield.getText().trim();
+        String username = usernamefield1.getText().trim();
+        String email = emailfield.getText().trim();
+        String password = new String(passwordfield.getPassword()).trim();
+        String role = (String) rolecombobox.getSelectedItem();
 
-    private void emailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailFieldActionPerformed
-
-    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordFieldActionPerformed
-
-    private void confPassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confPassFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_confPassFieldActionPerformed
-
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registerButtonActionPerformed
-
-    private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMouseClicked
-        String name = nameField.getText().trim();
-        String username = usernameField.getText().trim();
-        String email = emailField.getText().trim();
-        String userType = typeField.getSelectedItem().toString();
-        String password = new String(passwordField.getPassword()).trim();
-        String confirmPassword = new String(confPassField.getPassword()).trim();
-        
-        if (name.isEmpty() || username.isEmpty() || email.isEmpty() || userType.equals("Select User Type") || password.isEmpty() || confirmPassword.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "All fields are required!", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
-        if (!email.matches(emailRegex)) {
-            JOptionPane.showMessageDialog(null, "Invalid email format!", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        if (userType.equals("Select User Type")) {
-            JOptionPane.showMessageDialog(null, "Please select a valid role!", "Input Error", JOptionPane.ERROR_MESSAGE);
+        if (firstname.isEmpty() || lastname.isEmpty() || address.isEmpty() || username.isEmpty() || email.isEmpty() || password.isEmpty() || role == null || role.equals("Select Role")) {
+            JOptionPane.showMessageDialog(this, "Please fill in all fields and select a valid role.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (password.length() < 8) {
-            JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long!", "Input Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Password must be at least 8 characters long.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        if (!password.equals(confirmPassword)) {
-            JOptionPane.showMessageDialog(null, "Passwords do not match!", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        connectDB con = new connectDB();
-        Connection cn = con.getConnection();
-
-        if (cn == null) {
-            JOptionPane.showMessageDialog(null, "Database connection failed!", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        String checkEmailSql = "SELECT COUNT(*) FROM users WHERE email = ?";
-        try (PreparedStatement emailPst = cn.prepareStatement(checkEmailSql)) {
-            emailPst.setString(1, email);
-            try (ResultSet rsEmail = emailPst.executeQuery()) {
-                if (rsEmail.next() && rsEmail.getInt(1) > 0) {
-                    JOptionPane.showMessageDialog(null, "Email already exists!", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
+        connectDB db = new connectDB();
+        try (Connection conn = config.connectDB.getConnection()) {
+            // Check if username or email already exists using prepared statement
+            String checkSql = "SELECT * FROM users WHERE username = ? OR email = ?";
+            try (PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
+                checkStmt.setString(1, username);
+                checkStmt.setString(2, email);
+                try (ResultSet rs = checkStmt.executeQuery()) {
+                    if (rs.next()) {
+                        JOptionPane.showMessageDialog(this, "Username or email already exists.", "Registration Error", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
                 }
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        String checkUsernameSql = "SELECT COUNT(*) FROM users WHERE username = ?";
-        try (PreparedStatement usernamePst = cn.prepareStatement(checkUsernameSql)) {
-            usernamePst.setString(1, username);
-            try (ResultSet rsUsername = usernamePst.executeQuery()) {
-                if (rsUsername.next() && rsUsername.getInt(1) > 0) {
-                    JOptionPane.showMessageDialog(null, "Username already exists!", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
+
+            // Hash the password before storing
+            String hashedPassword = config.connectDB.hashPassword(password);
+
+            // Insert new user using prepared statement
+            String insertSql = "INSERT INTO users (firstname, lastname, address, username, email, role, password, status, image) VALUES (?, ?, ?, ?, ?, ?, ?, 'Pending', ?)";
+            try (PreparedStatement insertStmt = conn.prepareStatement(insertSql)) {
+                insertStmt.setString(1, firstname);
+                insertStmt.setString(2, lastname);
+                insertStmt.setString(3, address);
+                insertStmt.setString(4, username);
+                insertStmt.setString(5, email);
+                insertStmt.setString(6, role);
+                insertStmt.setString(7, hashedPassword);
+                insertStmt.setString(8, "src/images/logor.png");
+
+                int result = insertStmt.executeUpdate();
+                if (result > 0) {
+                    JOptionPane.showMessageDialog(this, "Registration successful! Your account is pending approval.\nPlease enter your Electric Company Account Number in the Profile Section!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    this.dispose();
+                    new Login().setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Registration failed. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error during registration: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
-        String status = (userType.equals("Admin") ? "Active" : "Pending");
-        
-        String insertSql = "INSERT INTO users (name, username, email, password, role, status) VALUES (?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement pst = cn.prepareStatement(insertSql)) {
-            pst.setString(1, name);
-            pst.setString(2, username);
-            pst.setString(3, email);
-            pst.setString(4, password); 
-            pst.setString(5, userType);
-            pst.setString(6, status);
-            
-            int result = pst.executeUpdate();
-            if (result == 1) {
-                JOptionPane.showMessageDialog(null, "Registered Successfully!");
-                new Login().setVisible(true);
-                SwingUtilities.getWindowAncestor(nameField).dispose(); 
-            } else {
-                JOptionPane.showMessageDialog(null, "Registration failed. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if (cn != null) try {
-            cn.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_registerButtonMouseClicked
-
-    private void to_registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_to_registerMouseClicked
-        new Login().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_to_registerMouseClicked
-
-    private void to_registerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_to_registerMouseEntered
-
-    }//GEN-LAST:event_to_registerMouseEntered
-
-    private void to_registerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_to_registerMouseExited
-
-    }//GEN-LAST:event_to_registerMouseExited
+    }//GEN-LAST:event_registerbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,9 +299,10 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel RegisterForm;
-    private javax.swing.JPasswordField confPassField;
-    private javax.swing.JTextField emailField;
+    private javax.swing.JTextField addressfield;
+    private javax.swing.JPanel bg;
+    private javax.swing.JTextField emailfield;
+    private javax.swing.JTextField firstnamefield;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -375,12 +310,13 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField nameField;
-    private javax.swing.JPasswordField passwordField;
-    private javax.swing.JButton registerButton;
-    private javax.swing.JLabel to_register;
-    private javax.swing.JComboBox<String> typeField;
-    private javax.swing.JTextField usernameField;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField lastnamefield;
+    private javax.swing.JLabel loginbtn;
+    private javax.swing.JPasswordField passwordfield;
+    private javax.swing.JButton registerbtn;
+    private javax.swing.JComboBox<String> rolecombobox;
+    private javax.swing.JTextField usernamefield1;
     // End of variables declaration//GEN-END:variables
 }
