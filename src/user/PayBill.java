@@ -59,19 +59,41 @@ public class PayBill extends javax.swing.JFrame {
 
         try {
             Connection conn = config.connectDB.getConnection();
-            String updateQuery = "UPDATE tbl_bill SET status = 'Paid' WHERE b_id = ?";
-            PreparedStatement pst = conn.prepareStatement(updateQuery);
-            pst.setInt(1, billId);
-            int rowsUpdated = pst.executeUpdate();
-            pst.close();
+            conn.setAutoCommit(false);
+
+            // Insert payment record
+            String insertPaymentQuery = "INSERT INTO tbl_payment (bill_id, amount_paid, payment_date, payment_method) VALUES (?, ?, CURDATE(), ?)";
+            PreparedStatement insertPst = conn.prepareStatement(insertPaymentQuery);
+            insertPst.setInt(1, billId);
+            insertPst.setDouble(2, amountDue);
+            insertPst.setString(3, paymentMethod);
+            int paymentRows = insertPst.executeUpdate();
+            insertPst.close();
+
+            if (paymentRows > 0) {
+                // Update bill status
+                String updateQuery = "UPDATE tbl_bill SET status = 'Paid' WHERE b_id = ?";
+                PreparedStatement updatePst = conn.prepareStatement(updateQuery);
+                updatePst.setInt(1, billId);
+                int rowsUpdated = updatePst.executeUpdate();
+                updatePst.close();
+
+                if (rowsUpdated > 0) {
+                    conn.commit();
+                    javax.swing.JOptionPane.showMessageDialog(this, "Payment successful. Change: " + String.format("%.2f", changeAmount), "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                    this.dispose();
+                } else {
+                    conn.rollback();
+                    javax.swing.JOptionPane.showMessageDialog(this, "Failed to update payment status.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                conn.rollback();
+                javax.swing.JOptionPane.showMessageDialog(this, "Failed to record payment.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+
+            conn.setAutoCommit(true);
             conn.close();
 
-            if (rowsUpdated > 0) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Payment successful. Change: " + String.format("%.2f", changeAmount), "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                this.dispose();
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Failed to update payment status.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-            }
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error processing payment: " + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }

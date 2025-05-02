@@ -1,6 +1,7 @@
 package admin;
 
 import GUI.Login;
+import Payment.Payment;
 import bills.Bills;
 import config.connectDB;
 import java.awt.Color;
@@ -391,10 +392,9 @@ public class AdminDashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtnMouseClicked
-      new Login().setVisible(true);  
-      this.dispose();
-         logAction("Admin Logged Out.");
-         this.dispose();
+        new Login().setVisible(true);  
+        logAction("Admin Logged Out.");
+        this.dispose();
     }//GEN-LAST:event_logoutbtnMouseClicked
 
     private void logoutbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtnMouseEntered
@@ -406,8 +406,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutbtnMouseExited
 
     private void userbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userbtnMouseClicked
-     this.setVisible(true);
-     this.dispose();
+     
     }//GEN-LAST:event_userbtnMouseClicked
 
     private void userbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userbtnMouseEntered
@@ -420,6 +419,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
     private void billsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billsbtnMouseClicked
         new Bills().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_billsbtnMouseClicked
 
     private void billsbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billsbtnMouseEntered
@@ -431,7 +431,8 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_billsbtnMouseExited
 
     private void paymentbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentbtnMouseClicked
-        // TODO add your handling code here:
+        new Payment().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_paymentbtnMouseClicked
 
     private void paymentbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentbtnMouseEntered
@@ -443,7 +444,8 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_paymentbtnMouseExited
 
     private void settingsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsbtnMouseClicked
-        // TODO add your handling code here:
+       new SettingsAdmin().setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_settingsbtnMouseClicked
 
     private void settingsbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsbtnMouseEntered
@@ -511,7 +513,15 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_adduserActionPerformed
 
     private void edituserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edituserActionPerformed
-       new EditUser().setVisible(true);
+        int selectedRow = usertable.getSelectedRow();
+        if (selectedRow == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please select a user to edit.");
+            return;
+        }
+        int userId = (int) usertable.getValueAt(selectedRow, 0); // Assuming id is in column 0
+        EditUser editUserForm = new EditUser();
+        editUserForm.loadUser(userId);
+        editUserForm.setVisible(true);
     }//GEN-LAST:event_edituserActionPerformed
 
     private void deleteuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteuserActionPerformed
@@ -530,7 +540,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this user?", "Confirm Delete", javax.swing.JOptionPane.YES_NO_OPTION);
             if (confirm == javax.swing.JOptionPane.YES_OPTION) {
                 pst.executeUpdate();
-                javax.swing.JOptionPane.showMessageDialog(this, "User deleted successfully.");
+                JOptionPane.showMessageDialog(this, "User deleted successfully.");
                 populateUserTable();
             }
         } catch (java.sql.SQLException e) {

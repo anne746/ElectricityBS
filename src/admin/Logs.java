@@ -6,6 +6,9 @@
 package admin;
 
 import GUI.Login;
+import Payment.Payment;
+import static admin.AdminDashboard.logAction;
+import bills.Bills;
 import config.connectDB;
 import java.awt.Color;
 import java.sql.Connection;
@@ -78,7 +81,7 @@ public class Logs extends javax.swing.JFrame {
         settingsbtn = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        logoutbtn1 = new javax.swing.JPanel();
+        logsbtn = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -228,31 +231,31 @@ public class Logs extends javax.swing.JFrame {
 
         jPanel1.add(settingsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 200, 40));
 
-        logoutbtn1.setBackground(new java.awt.Color(44, 62, 80));
-        logoutbtn1.setForeground(new java.awt.Color(44, 62, 80));
-        logoutbtn1.addMouseListener(new java.awt.event.MouseAdapter() {
+        logsbtn.setBackground(new java.awt.Color(44, 62, 80));
+        logsbtn.setForeground(new java.awt.Color(44, 62, 80));
+        logsbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutbtn1MouseClicked(evt);
+                logsbtnMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logoutbtn1MouseEntered(evt);
+                logsbtnMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                logoutbtn1MouseExited(evt);
+                logsbtnMouseExited(evt);
             }
         });
-        logoutbtn1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        logsbtn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Logs");
-        logoutbtn1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+        logsbtn.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logs.png"))); // NOI18N
-        logoutbtn1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        logsbtn.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
-        jPanel1.add(logoutbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 200, 40));
+        jPanel1.add(logsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 200, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -327,7 +330,8 @@ public class Logs extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtnMouseClicked
-        new Login().setVisible(true);
+        new Login().setVisible(true);  
+        logAction("Admin Logged Out.");
         this.dispose();
     }//GEN-LAST:event_logoutbtnMouseClicked
 
@@ -353,7 +357,8 @@ public class Logs extends javax.swing.JFrame {
     }//GEN-LAST:event_userbtnMouseExited
 
     private void billsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billsbtnMouseClicked
-
+        new Bills().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_billsbtnMouseClicked
 
     private void billsbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billsbtnMouseEntered
@@ -365,7 +370,8 @@ public class Logs extends javax.swing.JFrame {
     }//GEN-LAST:event_billsbtnMouseExited
 
     private void paymentbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentbtnMouseClicked
-        // TODO add your handling code here:
+         new Payment().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_paymentbtnMouseClicked
 
     private void paymentbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentbtnMouseEntered
@@ -377,7 +383,8 @@ public class Logs extends javax.swing.JFrame {
     }//GEN-LAST:event_paymentbtnMouseExited
 
     private void settingsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsbtnMouseClicked
-        // TODO add your handling code here:
+      new SettingsAdmin().setVisible(true);
+      this.dispose();
     }//GEN-LAST:event_settingsbtnMouseClicked
 
     private void settingsbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsbtnMouseEntered
@@ -388,17 +395,17 @@ public class Logs extends javax.swing.JFrame {
         settingsbtn.setBackground(defaultColor);
     }//GEN-LAST:event_settingsbtnMouseExited
 
-    private void logoutbtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn1MouseClicked
-         new Login().setVisible(true);
-    }//GEN-LAST:event_logoutbtn1MouseClicked
+    private void logsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsbtnMouseClicked
+            
+    }//GEN-LAST:event_logsbtnMouseClicked
 
-    private void logoutbtn1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn1MouseEntered
+    private void logsbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsbtnMouseEntered
+        logsbtn.setBackground(hoverColor);
+    }//GEN-LAST:event_logsbtnMouseEntered
 
-    private void logoutbtn1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtn1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutbtn1MouseExited
+    private void logsbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsbtnMouseExited
+        logsbtn.setBackground(defaultColor);
+    }//GEN-LAST:event_logsbtnMouseExited
 
     private void searchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchbtnActionPerformed
         String searchText = searchfield.getText().trim();
@@ -464,7 +471,7 @@ public class Logs extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel logoutbtn;
-    private javax.swing.JPanel logoutbtn1;
+    private javax.swing.JPanel logsbtn;
     private javax.swing.JTable logstable;
     private javax.swing.JPanel paymentbtn;
     private javax.swing.JButton searchbtn;

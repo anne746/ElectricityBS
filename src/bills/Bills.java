@@ -6,10 +6,13 @@
 package bills;
 
 import GUI.Login;
+import Payment.Payment;
 import admin.AddUser;
+import admin.AdminDashboard;
 import static admin.AdminDashboard.logAction;
 import admin.EditUser;
 import admin.Logs;
+import admin.SettingsAdmin;
 import config.connectDB;
 import java.awt.Color;
 import java.sql.Connection;
@@ -64,9 +67,9 @@ public class Bills extends javax.swing.JFrame {
         searchbtn = new javax.swing.JButton();
         addbills = new javax.swing.JButton();
         editbill = new javax.swing.JButton();
-        deletebill = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(244, 246, 249));
         jPanel3.setPreferredSize(new java.awt.Dimension(900, 600));
@@ -289,7 +292,7 @@ public class Bills extends javax.swing.JFrame {
                 addbillsActionPerformed(evt);
             }
         });
-        jPanel3.add(addbills, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 80, 30));
+        jPanel3.add(addbills, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 80, 30));
 
         editbill.setBackground(new java.awt.Color(44, 62, 80));
         editbill.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -302,41 +305,9 @@ public class Bills extends javax.swing.JFrame {
                 editbillActionPerformed(evt);
             }
         });
-        jPanel3.add(editbill, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 80, 30));
+        jPanel3.add(editbill, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 60, 80, 30));
 
-        deletebill.setBackground(new java.awt.Color(44, 62, 80));
-        deletebill.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        deletebill.setForeground(new java.awt.Color(255, 255, 255));
-        deletebill.setText("Delete");
-        deletebill.setBorder(null);
-        deletebill.setPreferredSize(new java.awt.Dimension(350, 40));
-        deletebill.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deletebillActionPerformed(evt);
-            }
-        });
-        jPanel3.add(deletebill, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 80, 30));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -344,7 +315,6 @@ public class Bills extends javax.swing.JFrame {
 
     private void logoutbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtnMouseClicked
         new Login().setVisible(true);
-        this.dispose();
         logAction("Admin Logged Out.");
         this.dispose();
     }//GEN-LAST:event_logoutbtnMouseClicked
@@ -358,7 +328,7 @@ public class Bills extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutbtnMouseExited
 
     private void userbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userbtnMouseClicked
-        this.setVisible(true);
+        new AdminDashboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_userbtnMouseClicked
 
@@ -383,7 +353,8 @@ public class Bills extends javax.swing.JFrame {
     }//GEN-LAST:event_billsbtnMouseExited
 
     private void paymentbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentbtnMouseClicked
-        // TODO add your handling code here:
+        new Payment().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_paymentbtnMouseClicked
 
     private void paymentbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentbtnMouseEntered
@@ -395,7 +366,8 @@ public class Bills extends javax.swing.JFrame {
     }//GEN-LAST:event_paymentbtnMouseExited
 
     private void settingsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsbtnMouseClicked
-        // TODO add your handling code here:
+      new SettingsAdmin().setVisible(true);
+      this.dispose();
     }//GEN-LAST:event_settingsbtnMouseClicked
 
     private void settingsbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsbtnMouseEntered
@@ -429,7 +401,7 @@ public class Bills extends javax.swing.JFrame {
         try {
             String query = "SELECT b.b_id, u.account_number, b.bill_month, b.kwh_used, b.amount_due, b.due_date, b.status " +
                            "FROM tbl_bill b " +
-                           "JOIN tbl_user u ON b.user_id = u.user_id " +
+                           "JOIN users u ON b.user_id = u.id " +
                            "WHERE CAST(b.b_id AS CHAR) LIKE ? OR " +
                            "u.account_number LIKE ? OR " +
                            "b.bill_month LIKE ? OR " +
@@ -471,16 +443,25 @@ public class Bills extends javax.swing.JFrame {
     }//GEN-LAST:event_searchbtnActionPerformed
 
     private void addbillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbillsActionPerformed
-        new AddBill().setVisible(true);
+        new AddBills().setVisible(true);
     }//GEN-LAST:event_addbillsActionPerformed
 
     private void editbillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editbillActionPerformed
-        new EditBill().setVisible(true);
+        int selectedRow = billstable.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a bill to edit.");
+            return;
+        }
+        String status = billstable.getValueAt(selectedRow, 6).toString(); // Assuming status is in column 6
+        if (!"Pending".equalsIgnoreCase(status)) {
+            JOptionPane.showMessageDialog(this, "Only pending bills can be edited.");
+            return;
+        }
+        int billId = Integer.parseInt(billstable.getValueAt(selectedRow, 0).toString()); // Assuming bill ID is in column 0
+        EditBill editBillForm = new EditBill();
+        editBillForm.loadBill(billId);
+        editBillForm.setVisible(true);
     }//GEN-LAST:event_editbillActionPerformed
-
-    private void deletebillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebillActionPerformed
-       
-    }//GEN-LAST:event_deletebillActionPerformed
 
     /**
      * @param args the command line arguments
@@ -521,7 +502,6 @@ public class Bills extends javax.swing.JFrame {
     private javax.swing.JButton addbills;
     private javax.swing.JPanel billsbtn;
     private javax.swing.JTable billstable;
-    private javax.swing.JButton deletebill;
     private javax.swing.JButton editbill;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -576,7 +556,7 @@ public class Bills extends javax.swing.JFrame {
         try {
             String query = "SELECT b.b_id, u.account_number, b.bill_month, b.kwh_used, b.amount_due, b.due_date, b.status " +
                            "FROM tbl_bill b " +
-                           "JOIN tbl_user u ON b.user_id = u.user_id";
+                           "JOIN users u ON b.user_id = u.id";
             Connection con = db.getConnection();
             PreparedStatement pst = con.prepareStatement(query);
             ResultSet rs = pst.executeQuery();

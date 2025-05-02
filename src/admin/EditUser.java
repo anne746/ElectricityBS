@@ -19,6 +19,31 @@ public class EditUser extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void loadUser(int userId) {
+        try (java.sql.Connection con = config.connectDB.getConnection()) {
+            String query = "SELECT firstname, lastname, email, username, role FROM users WHERE id = ?";
+            java.sql.PreparedStatement pst = con.prepareStatement(query);
+            pst.setInt(1, userId);
+            java.sql.ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                firstnamefield.setText(rs.getString("firstname"));
+                lastnamefield.setText(rs.getString("lastname"));
+                emailfield.setText(rs.getString("email"));
+                usernamefield.setText(rs.getString("username"));
+                rolecombobox.setSelectedItem(rs.getString("role"));
+                this.userId = userId;
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "User not found.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                this.dispose();
+            }
+            rs.close();
+            pst.close();
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error loading user: " + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            this.dispose();
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,17 +64,24 @@ public class EditUser extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         emailfield = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        updateuserbtn = new javax.swing.JButton();
+        updateUser = new javax.swing.JButton();
+        passwordfield = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        usernamefield = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(44, 62, 80));
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Edit User");
+        jLabel1.setText("Update User");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -67,113 +99,139 @@ public class EditUser extends javax.swing.JFrame {
         firstnamefield.setBackground(new java.awt.Color(255, 255, 255));
         firstnamefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         firstnamefield.setPreferredSize(new java.awt.Dimension(350, 40));
-        jPanel1.add(firstnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 310, -1));
+        jPanel1.add(firstnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 160, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("First Name");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 70, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Role");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
 
         rolecombobox.setBackground(new java.awt.Color(255, 255, 255));
         rolecombobox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rolecombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Role", "User", "Admin", " " }));
         rolecombobox.setPreferredSize(new java.awt.Dimension(350, 40));
-        jPanel1.add(rolecombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 310, 40));
+        jPanel1.add(rolecombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 160, 40));
 
         lastnamefield.setBackground(new java.awt.Color(255, 255, 255));
         lastnamefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         lastnamefield.setPreferredSize(new java.awt.Dimension(350, 40));
-        jPanel1.add(lastnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 310, -1));
+        jPanel1.add(lastnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Last Name");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, -1, -1));
 
         emailfield.setBackground(new java.awt.Color(255, 255, 255));
         emailfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         emailfield.setPreferredSize(new java.awt.Dimension(350, 40));
-        jPanel1.add(emailfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 310, -1));
+        jPanel1.add(emailfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 160, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Email");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
-        updateuserbtn.setBackground(new java.awt.Color(46, 134, 222));
-        updateuserbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        updateuserbtn.setForeground(new java.awt.Color(255, 255, 255));
-        updateuserbtn.setText("Update");
-        updateuserbtn.setBorder(null);
-        updateuserbtn.setPreferredSize(new java.awt.Dimension(350, 40));
-        updateuserbtn.addActionListener(new java.awt.event.ActionListener() {
+        updateUser.setBackground(new java.awt.Color(46, 134, 222));
+        updateUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        updateUser.setForeground(new java.awt.Color(255, 255, 255));
+        updateUser.setText("Update");
+        updateUser.setBorder(null);
+        updateUser.setPreferredSize(new java.awt.Dimension(350, 40));
+        updateUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateuserbtnActionPerformed(evt);
+                updateUserActionPerformed(evt);
             }
         });
-        jPanel1.add(updateuserbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, 310, -1));
+        jPanel1.add(updateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 310, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        passwordfield.setBackground(new java.awt.Color(255, 255, 255));
+        passwordfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        passwordfield.setEnabled(false);
+        passwordfield.setPreferredSize(new java.awt.Dimension(350, 40));
+        jPanel1.add(passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 160, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Password");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
+
+        usernamefield.setBackground(new java.awt.Color(255, 255, 255));
+        usernamefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        usernamefield.setEnabled(false);
+        usernamefield.setPreferredSize(new java.awt.Dimension(350, 40));
+        jPanel1.add(usernamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 160, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Username");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 70, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateuserbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateuserbtnActionPerformed
-        if (this.userId <= 0) {
-            JOptionPane.showMessageDialog(this, "Please select a user from the table before updating.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        String firstname = firstnamefield.getText().trim();
-        String lastname = lastnamefield.getText().trim();
+    private void updateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserActionPerformed
+        // Add user with validation
+        String firstName = firstnamefield.getText().trim();
+        String lastName = lastnamefield.getText().trim();
         String email = emailfield.getText().trim();
+        String username = usernamefield.getText().trim();
+        String password = new String(passwordfield.getPassword());
         String role = (String) rolecombobox.getSelectedItem();
 
-        if (role.equals("Select Role")) {
-            JOptionPane.showMessageDialog(this, "Please select a valid role.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        // Basic validation
+        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty() || role.equals("Select Role")) {
+            JOptionPane.showMessageDialog(this, "Please fill in all fields and select a role.");
             return;
         }
 
-        int userId = this.userId;
-
-        String sql = "UPDATE users SET firstname = '" + firstname + "', lastname = '" + lastname + "', email = '" + email + "', role = '" + role + "' WHERE id = " + userId;
-
-        boolean success = config.connectDB.updateDatabase(sql);
-
-        if (success) {
-            JOptionPane.showMessageDialog(this, "User updated successfully.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            // Log the successful update action
-          int currentUserId = config.usersession.getInstance().getId();
-            admin.ActionLogger.logAction(currentUserId, "Updated user with ID " + userId);
-        } else {
-            JOptionPane.showMessageDialog(this, "Failed to update user.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        // Email format validation (simple regex)
+        if (!email.matches("^[\\w.-]+@[\\w.-]+\\.\\w+$")) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid email address.");
+            return;
         }
-    }//GEN-LAST:event_updateuserbtnActionPerformed
+
+        // Password length validation
+        if (password.length() < 6) {
+            JOptionPane.showMessageDialog(this, "Password must be at least 6 characters long.");
+            return;
+        }
+
+        try {
+            // Hash the password before storing
+            String hashedPassword = config.connectDB.hashPassword(password);
+
+            // Insert user into database
+            String query = "INSERT INTO users (firstname, lastname, email, username, password, role, status) VALUES (?, ?, ?, ?, ?, ?, 'Pending')";
+            java.sql.Connection con = new config.connectDB().getConnection();
+            java.sql.PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1, firstName);
+            pst.setString(2, lastName);
+            pst.setString(3, email);
+            pst.setString(4, username);
+            pst.setString(5, hashedPassword);
+            pst.setString(6, role);
+            pst.executeUpdate();
+
+            JOptionPane.showMessageDialog(this, "User added successfully.");
+            // Log the successful addition action
+            int currentUserId = config.usersession.getInstance().getId();
+            admin.ActionLogger.logAction(currentUserId, "Added new user: " + username);
+            this.dispose(); // Close the add user form after successful addition
+        } catch (java.security.NoSuchAlgorithmException e) {
+            JOptionPane.showMessageDialog(this, "Error hashing password: " + e.getMessage());
+        } catch (java.sql.SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error adding user: " + e.getMessage());
+        }
+    }//GEN-LAST:event_updateUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,11 +275,15 @@ public class EditUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField lastnamefield;
+    private javax.swing.JPasswordField passwordfield;
     private javax.swing.JComboBox<String> rolecombobox;
-    private javax.swing.JButton updateuserbtn;
+    private javax.swing.JButton updateUser;
+    private javax.swing.JTextField usernamefield;
     // End of variables declaration//GEN-END:variables
 }

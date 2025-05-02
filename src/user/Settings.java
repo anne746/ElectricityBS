@@ -6,6 +6,7 @@
 package user;
 
 import GUI.Login;
+import static admin.AdminDashboard.logAction;
 import static com.sun.corba.se.impl.util.Utility.printStackTrace;
 import java.awt.Color;
 import config.usersession;
@@ -291,7 +292,8 @@ public class Settings extends javax.swing.JFrame {
 
     private void logoutbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtnMouseClicked
       new Login().setVisible(true);
-      
+        logAction("User logged out");
+        this.dispose();
     }//GEN-LAST:event_logoutbtnMouseClicked
 
     private void logoutbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtnMouseEntered
@@ -316,7 +318,8 @@ public class Settings extends javax.swing.JFrame {
     }//GEN-LAST:event_homebtnMouseExited
 
     private void billsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billsbtnMouseClicked
-
+        new UserBills().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_billsbtnMouseClicked
 
     private void billsbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billsbtnMouseEntered
@@ -328,7 +331,8 @@ public class Settings extends javax.swing.JFrame {
     }//GEN-LAST:event_billsbtnMouseExited
 
     private void profilebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilebtnMouseClicked
-        // TODO add your handling code here:
+         new Profile().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_profilebtnMouseClicked
 
     private void profilebtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilebtnMouseEntered

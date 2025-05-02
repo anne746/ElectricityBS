@@ -7,6 +7,7 @@ package admin;
 
 import user.*;
 import GUI.Login;
+import Payment.Payment;
 import static admin.AdminDashboard.logAction;
 import bills.Bills;
 import static com.sun.corba.se.impl.util.Utility.printStackTrace;
@@ -46,7 +47,6 @@ public class SettingsAdmin extends javax.swing.JFrame {
         newpasswordfield = new javax.swing.JPasswordField();
         jLabel14 = new javax.swing.JLabel();
         oldpasswordfield = new javax.swing.JPasswordField();
-        jLabel15 = new javax.swing.JLabel();
         confirmpassfield = new javax.swing.JPasswordField();
         jLabel16 = new javax.swing.JLabel();
         changepassbtn = new javax.swing.JButton();
@@ -70,6 +70,10 @@ public class SettingsAdmin extends javax.swing.JFrame {
         logsbtn = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        changerate = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        changeratefield = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -99,11 +103,6 @@ public class SettingsAdmin extends javax.swing.JFrame {
         oldpasswordfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         oldpasswordfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(oldpasswordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel15.setText("Old Password");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
 
         confirmpassfield.setBackground(new java.awt.Color(255, 255, 255));
         confirmpassfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
@@ -302,15 +301,123 @@ public class SettingsAdmin extends javax.swing.JFrame {
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setText("Electric Rate per kWh");
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, -1, -1));
+
+        changerate.setBackground(new java.awt.Color(46, 134, 222));
+        changerate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        changerate.setForeground(new java.awt.Color(255, 255, 255));
+        changerate.setText("Change");
+        changerate.setBorder(null);
+        changerate.setPreferredSize(new java.awt.Dimension(350, 40));
+        changerate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changerateMouseClicked(evt);
+            }
+        });
+        changerate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changerateActionPerformed(evt);
+            }
+        });
+        jPanel3.add(changerate, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 240, -1));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel20.setText("Old Password");
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
+
+        changeratefield.setBackground(new java.awt.Color(255, 255, 255));
+        changeratefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        changeratefield.setPreferredSize(new java.awt.Dimension(350, 40));
+        jPanel3.add(changeratefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 240, -1));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    private void changepassbtnMouseClicked(java.awt.event.MouseEvent evt){
-        
-    }
 
+    private void logsbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsbtnMouseExited
+        logsbtn.setBackground(defaultColor);
+    }//GEN-LAST:event_logsbtnMouseExited
+
+    private void logsbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsbtnMouseEntered
+        logsbtn.setBackground(hoverColor);
+    }//GEN-LAST:event_logsbtnMouseEntered
+
+    private void logsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsbtnMouseClicked
+        new Logs().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_logsbtnMouseClicked
+
+    private void settingsbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsbtnMouseExited
+        settingsbtn.setBackground(defaultColor);
+    }//GEN-LAST:event_settingsbtnMouseExited
+
+    private void settingsbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsbtnMouseEntered
+        settingsbtn.setBackground(hoverColor);
+    }//GEN-LAST:event_settingsbtnMouseEntered
+
+    private void settingsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsbtnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_settingsbtnMouseClicked
+
+    private void paymentbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentbtnMouseExited
+        paymentbtn.setBackground(defaultColor);
+    }//GEN-LAST:event_paymentbtnMouseExited
+
+    private void paymentbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentbtnMouseEntered
+        paymentbtn.setBackground(hoverColor);
+    }//GEN-LAST:event_paymentbtnMouseEntered
+
+    private void paymentbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentbtnMouseClicked
+        new Payment().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_paymentbtnMouseClicked
+
+    private void billsbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billsbtnMouseExited
+        billsbtn.setBackground(defaultColor);
+    }//GEN-LAST:event_billsbtnMouseExited
+
+    private void billsbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billsbtnMouseEntered
+        billsbtn.setBackground(hoverColor);
+    }//GEN-LAST:event_billsbtnMouseEntered
+
+    private void billsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billsbtnMouseClicked
+        new Bills().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_billsbtnMouseClicked
+
+    private void userbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userbtnMouseExited
+        userbtn.setBackground(defaultColor);
+    }//GEN-LAST:event_userbtnMouseExited
+
+    private void userbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userbtnMouseEntered
+        userbtn.setBackground(hoverColor);
+    }//GEN-LAST:event_userbtnMouseEntered
+
+    private void userbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userbtnMouseClicked
+        new AdminDashboard().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_userbtnMouseClicked
+
+    private void logoutbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtnMouseExited
+        logoutbtn.setBackground(defaultColor);
+    }//GEN-LAST:event_logoutbtnMouseExited
+
+    private void logoutbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtnMouseEntered
+        logoutbtn.setBackground(hoverColor);
+    }//GEN-LAST:event_logoutbtnMouseEntered
+
+    private void logoutbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtnMouseClicked
+        new Login().setVisible(true);
+        this.dispose();
+        logAction("Admin Logged Out.");
+        this.dispose();
+    }//GEN-LAST:event_logoutbtnMouseClicked
 
     private void changepassbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changepassbtnActionPerformed
         try {
@@ -391,83 +498,47 @@ public class SettingsAdmin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_changepassbtnActionPerformed
 
-    private void logoutbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtnMouseClicked
-        new Login().setVisible(true);
-        this.dispose();
-        logAction("Admin Logged Out.");
-        this.dispose();
-    }//GEN-LAST:event_logoutbtnMouseClicked
-
-    private void logoutbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtnMouseEntered
-        logoutbtn.setBackground(hoverColor);
-    }//GEN-LAST:event_logoutbtnMouseEntered
-
-    private void logoutbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutbtnMouseExited
-        logoutbtn.setBackground(defaultColor);
-    }//GEN-LAST:event_logoutbtnMouseExited
-
-    private void userbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userbtnMouseClicked
-        this.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_userbtnMouseClicked
-
-    private void userbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userbtnMouseEntered
-        userbtn.setBackground(hoverColor);
-    }//GEN-LAST:event_userbtnMouseEntered
-
-    private void userbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userbtnMouseExited
-        userbtn.setBackground(defaultColor);
-    }//GEN-LAST:event_userbtnMouseExited
-
-    private void billsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billsbtnMouseClicked
-        new Bills().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_billsbtnMouseClicked
-
-    private void billsbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billsbtnMouseEntered
-        billsbtn.setBackground(hoverColor);
-    }//GEN-LAST:event_billsbtnMouseEntered
-
-    private void billsbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billsbtnMouseExited
-        billsbtn.setBackground(defaultColor);
-    }//GEN-LAST:event_billsbtnMouseExited
-
-    private void paymentbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentbtnMouseClicked
+    private void changepassbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassbtnMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_paymentbtnMouseClicked
+    }//GEN-LAST:event_changepassbtnMouseClicked
 
-    private void paymentbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentbtnMouseEntered
-        paymentbtn.setBackground(hoverColor);
-    }//GEN-LAST:event_paymentbtnMouseEntered
-
-    private void paymentbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentbtnMouseExited
-        paymentbtn.setBackground(defaultColor);
-    }//GEN-LAST:event_paymentbtnMouseExited
-
-    private void settingsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsbtnMouseClicked
+    private void changerateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changerateMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_settingsbtnMouseClicked
+    }//GEN-LAST:event_changerateMouseClicked
 
-    private void settingsbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsbtnMouseEntered
-        settingsbtn.setBackground(hoverColor);
-    }//GEN-LAST:event_settingsbtnMouseEntered
+    private void changerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changerateActionPerformed
+        String newRateStr = changeratefield.getText().trim();
+        if (newRateStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter a new rate.", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try {
+            double newRate = Double.parseDouble(newRateStr);
+            if (newRate <= 0) {
+                JOptionPane.showMessageDialog(this, "Rate must be a positive number.", "Input Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            Connection con = connectDB.getConnection();
+            String updateQuery = "UPDATE tbl_bill SET rate_perkWh = ?";
+            PreparedStatement pst = con.prepareStatement(updateQuery);
+            pst.setDouble(1, newRate);
+            int rowsUpdated = pst.executeUpdate();
+            pst.close();
+            con.close();
+            if (rowsUpdated > 0) {
+                JOptionPane.showMessageDialog(this, "Rate updated successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                changeratefield.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "Failed to update rate.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid number for rate.", "Input Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error updating rate: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_changerateActionPerformed
+   
 
-    private void settingsbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsbtnMouseExited
-        settingsbtn.setBackground(defaultColor);
-    }//GEN-LAST:event_settingsbtnMouseExited
-
-    private void logsbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsbtnMouseClicked
-        new Logs().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_logsbtnMouseClicked
-
-    private void logsbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsbtnMouseEntered
-        logsbtn.setBackground(hoverColor);
-    }//GEN-LAST:event_logsbtnMouseEntered
-
-    private void logsbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsbtnMouseExited
-        logsbtn.setBackground(defaultColor);
-    }//GEN-LAST:event_logsbtnMouseExited
 
     
 
@@ -512,17 +583,20 @@ public class SettingsAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel billsbtn;
     private javax.swing.JButton changepassbtn;
+    private javax.swing.JButton changerate;
+    private javax.swing.JTextField changeratefield;
     private javax.swing.JPasswordField confirmpassfield;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
