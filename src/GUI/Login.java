@@ -172,6 +172,7 @@ public class Login extends javax.swing.JFrame {
                     session.setStatus(rs.getString("status"));
                     session.setRole(role);
                     session.setImage(rs.getString("image"));
+                    session.setAccNum(rs.getString("account_number")); // Set account number in session
                     session.setLoggedIn(true);
                     
                     if (role.equalsIgnoreCase("user")) {

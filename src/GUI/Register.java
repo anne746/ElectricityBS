@@ -57,6 +57,8 @@ public class Register extends javax.swing.JFrame {
         rolecombobox = new javax.swing.JComboBox<>();
         usernamefield1 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        accnumber = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -151,8 +153,8 @@ public class Register extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Email");
-        bg.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, -1, -1));
+        jLabel8.setText("Customer Account Number");
+        bg.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, -1));
 
         rolecombobox.setBackground(new java.awt.Color(255, 255, 255));
         rolecombobox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -169,6 +171,22 @@ public class Register extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Username");
         bg.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+
+        accnumber.setBackground(new java.awt.Color(255, 255, 255));
+        accnumber.setText("ex. 1234567890");
+        accnumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        accnumber.setPreferredSize(new java.awt.Dimension(350, 40));
+        accnumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accnumberActionPerformed(evt);
+            }
+        });
+        bg.add(accnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Email");
+        bg.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -208,7 +226,7 @@ public class Register extends javax.swing.JFrame {
         String email = emailfield.getText().trim();
         String password = new String(passwordfield.getPassword()).trim();
         String role = (String) rolecombobox.getSelectedItem();
-
+        String acc_number = accnumber.getText().trim();
         if (firstname.isEmpty() || lastname.isEmpty() || address.isEmpty() || username.isEmpty() || email.isEmpty() || password.isEmpty() || role == null || role.equals("Select Role")) {
             JOptionPane.showMessageDialog(this, "Please fill in all fields and select a valid role.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -218,7 +236,28 @@ public class Register extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Password must be at least 8 characters long.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        if(acc_number.length()>10){
+            JOptionPane.showMessageDialog(this, "Account Number must be only 10 characters long.", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid email address.", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (isDuplicate("email", email)) {
+            JOptionPane.showMessageDialog(this, "Email already exists.", "Duplicate Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
+        if (isDuplicate("username", username)) {
+            JOptionPane.showMessageDialog(this, "Username already exists.", "Duplicate Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (isDuplicate("account_number", acc_number)) {
+            JOptionPane.showMessageDialog(this, "Account Number already exists.", "Duplicate Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         connectDB db = new connectDB();
         try (Connection conn = config.connectDB.getConnection()) {
             // Check if username or email already exists using prepared statement
@@ -238,7 +277,7 @@ public class Register extends javax.swing.JFrame {
             String hashedPassword = config.connectDB.hashPassword(password);
 
             // Insert new user using prepared statement
-            String insertSql = "INSERT INTO users (firstname, lastname, address, username, email, role, password, status, image) VALUES (?, ?, ?, ?, ?, ?, ?, 'Pending', ?)";
+            String insertSql = "INSERT INTO users (firstname, lastname, address, username, email, role, password, status, image, account_number) VALUES (?, ?, ?, ?, ?, ?, ?, 'Pending', ?, ?)";
             try (PreparedStatement insertStmt = conn.prepareStatement(insertSql)) {
                 insertStmt.setString(1, firstname);
                 insertStmt.setString(2, lastname);
@@ -248,10 +287,11 @@ public class Register extends javax.swing.JFrame {
                 insertStmt.setString(6, role);
                 insertStmt.setString(7, hashedPassword);
                 insertStmt.setString(8, "src/images/logor.png");
+                insertStmt.setString(9, acc_number);
 
                 int result = insertStmt.executeUpdate();
                 if (result > 0) {
-                    JOptionPane.showMessageDialog(this, "Registration successful! Your account is pending approval.\nPlease enter your Electric Company Account Number in the Profile Section!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Registration successful! Your account is pending approval.", "Success", JOptionPane.INFORMATION_MESSAGE);
                     this.dispose();
                     new Login().setVisible(true);
                 } else {
@@ -262,6 +302,24 @@ public class Register extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error during registration: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_registerbtnActionPerformed
+    Connection conn = config.connectDB.getConnection();
+    public boolean isDuplicate(String column, String value) {
+        String query = "SELECT COUNT(*) FROM users WHERE " + column + " = ?";
+        try (PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setString(1, value);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private void accnumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accnumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_accnumberActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,11 +357,13 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField accnumber;
     private javax.swing.JTextField addressfield;
     private javax.swing.JPanel bg;
     private javax.swing.JTextField emailfield;
     private javax.swing.JTextField firstnamefield;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

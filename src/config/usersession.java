@@ -18,7 +18,8 @@ public class usersession {
     private String password;
     private String status;
     private String address;
-    private String image;  // Added image field
+    private String image; 
+    private String accnum;// Added image field
     private boolean loggedIn;
     private boolean userlogged;
 
@@ -105,7 +106,13 @@ public class usersession {
     public void setAddress(String address) {
         this.address = address;
     }
+    public String getAccNum() {
+        return accnum;
+    }
 
+    public void setAccNum(String accnum) {
+        this.accnum = accnum;
+    }
     public String getImage() {
         return image;
     }
@@ -113,6 +120,7 @@ public class usersession {
     public void setImage(String image) {
         this.image = image;
     }
+    
 
     public boolean isLoggedIn() {
         return loggedIn;
@@ -129,6 +137,7 @@ public class usersession {
     public void setUserlogged(boolean userlogged) {
         this.userlogged = userlogged;
     }
+    
 
     public void logout() {
         this.id = 0;

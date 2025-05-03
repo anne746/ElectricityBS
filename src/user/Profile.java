@@ -18,10 +18,7 @@ import static user.UserDashboard.logAction;
 
 public class Profile extends javax.swing.JFrame {
 
-    /**
-     * Creates new form settings
-     */
-   
+  
 
     public Profile() {
         initComponents();
@@ -34,10 +31,10 @@ public class Profile extends javax.swing.JFrame {
         firstnamefield.setText(session.getFirstname());
         lastnamefield.setText(session.getLastname());
         emailfield.setText(session.getEmail());
-        // Set address to "N/A" since not available in usersession
-        addressfield.setText("N/A");
+        addressfield.setText(session.getAddress());
         String status = session.getStatus();
         statuslabe.setText(status);
+        accnumfield.setText(session.getAccNum());
         if (status != null && status.equalsIgnoreCase("Active")) {
             statuslabe.setForeground(new java.awt.Color(0, 204, 0)); // green
         } else {
@@ -92,12 +89,12 @@ public class Profile extends javax.swing.JFrame {
         emailfield = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        addressfield = new javax.swing.JTextField();
+        accnumfield = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         removeProfile = new javax.swing.JButton();
         selectProfile = new javax.swing.JButton();
-        addressfield1 = new javax.swing.JTextField();
+        addressfield = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -319,16 +316,16 @@ public class Profile extends javax.swing.JFrame {
         jLabel19.setText("Account Number");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 320, 180, -1));
 
-        addressfield.setBackground(new java.awt.Color(255, 255, 255));
-        addressfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        addressfield.setEnabled(false);
-        addressfield.setPreferredSize(new java.awt.Dimension(350, 40));
-        addressfield.addActionListener(new java.awt.event.ActionListener() {
+        accnumfield.setBackground(new java.awt.Color(255, 255, 255));
+        accnumfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        accnumfield.setEnabled(false);
+        accnumfield.setPreferredSize(new java.awt.Dimension(350, 40));
+        accnumfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressfieldActionPerformed(evt);
+                accnumfieldActionPerformed(evt);
             }
         });
-        jPanel3.add(addressfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 180, -1));
+        jPanel3.add(accnumfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 180, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
@@ -366,16 +363,16 @@ public class Profile extends javax.swing.JFrame {
         });
         jPanel3.add(selectProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 90, -1));
 
-        addressfield1.setBackground(new java.awt.Color(255, 255, 255));
-        addressfield1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        addressfield1.setEnabled(false);
-        addressfield1.setPreferredSize(new java.awt.Dimension(350, 40));
-        addressfield1.addActionListener(new java.awt.event.ActionListener() {
+        addressfield.setBackground(new java.awt.Color(255, 255, 255));
+        addressfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        addressfield.setEnabled(false);
+        addressfield.setPreferredSize(new java.awt.Dimension(350, 40));
+        addressfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressfield1ActionPerformed(evt);
+                addressfieldActionPerformed(evt);
             }
         });
-        jPanel3.add(addressfield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 180, -1));
+        jPanel3.add(addressfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 180, -1));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
@@ -563,13 +560,13 @@ public class Profile extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_removeProfileActionPerformed
 
+    private void accnumfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accnumfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_accnumfieldActionPerformed
+
     private void addressfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addressfieldActionPerformed
-
-    private void addressfield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressfield1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addressfield1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -610,8 +607,8 @@ public class Profile extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField accnumfield;
     private javax.swing.JTextField addressfield;
-    private javax.swing.JTextField addressfield1;
     private javax.swing.JPanel billsbtn;
     private javax.swing.JTextField emailfield;
     private javax.swing.JTextField firstnamefield;
