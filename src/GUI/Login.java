@@ -42,9 +42,10 @@ public class Login extends javax.swing.JFrame {
         registerBtn = new javax.swing.JLabel();
         loginbtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        forgotpass = new javax.swing.JLabel();
         PasswordField = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,12 +57,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        java.net.URL imgURL = getClass().getResource("/images/logor.png");
-        if (imgURL != null) {
-            jLabel1.setIcon(new javax.swing.ImageIcon(imgURL));
-        } else {
-            System.err.println("Couldn't find file: /images/logor.png");
-        }
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logor.png"))); // NOI18N
         jLabel1.setText("  PowerPay");
         bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 900, -1));
 
@@ -104,10 +100,17 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("Password");
         bg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Don't have an account?");
-        bg.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, -1, -1));
+        forgotpass.setBackground(new java.awt.Color(46, 134, 222));
+        forgotpass.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        forgotpass.setForeground(new java.awt.Color(46, 134, 222));
+        forgotpass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        forgotpass.setText("Forgot Password");
+        forgotpass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgotpassMouseClicked(evt);
+            }
+        });
+        bg.add(forgotpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 190, -1));
 
         PasswordField.setBackground(new java.awt.Color(255, 255, 255));
         PasswordField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
@@ -120,6 +123,11 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Login to Your Account");
         bg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 900, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Don't have an account?");
+        bg.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, -1, -1));
 
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 600));
 
@@ -195,6 +203,11 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_loginbtnActionPerformed
 
+    private void forgotpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotpassMouseClicked
+       new ForgotPassword().setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_forgotpassMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -234,11 +247,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JTextField UserField;
     private javax.swing.JPanel bg;
+    private javax.swing.JLabel forgotpass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JButton loginbtn;
     private javax.swing.JLabel registerBtn;
     // End of variables declaration//GEN-END:variables

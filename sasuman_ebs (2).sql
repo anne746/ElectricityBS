@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2025 at 05:42 PM
+-- Generation Time: May 04, 2025 at 08:27 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -96,7 +96,6 @@ INSERT INTO `logs` (`logID`, `userID`, `action`, `date_time`) VALUES
 (59, 9, 'User logged in', '2025-05-01 12:13:31'),
 (60, 8, 'Admin logged in', '2025-05-01 12:19:12'),
 (61, 8, 'Admin Logged Out.', '2025-05-01 12:19:16'),
-(62, 10, 'User logged in', '2025-05-01 12:19:23'),
 (63, 8, 'Admin logged in', '2025-05-01 13:09:12'),
 (64, 8, 'Admin logged in', '2025-05-01 13:09:51'),
 (65, 8, 'Admin logged in', '2025-05-01 13:10:57'),
@@ -140,7 +139,57 @@ INSERT INTO `logs` (`logID`, `userID`, `action`, `date_time`) VALUES
 (103, 9, 'User logged in', '2025-05-01 15:27:19'),
 (104, 9, 'User logged in', '2025-05-01 15:33:55'),
 (105, 9, 'User logged in', '2025-05-01 15:35:13'),
-(106, 9, 'User logged in', '2025-05-01 15:38:04');
+(106, 9, 'User logged in', '2025-05-01 15:38:04'),
+(107, 9, 'User logged in', '2025-05-02 07:20:24'),
+(108, 9, 'User logged in', '2025-05-02 07:21:31'),
+(109, 8, 'Admin logged in', '2025-05-02 07:22:05'),
+(110, 8, 'Admin logged in', '2025-05-02 07:23:03'),
+(111, 8, 'Admin logged in', '2025-05-02 07:23:58'),
+(112, 8, 'Admin logged in', '2025-05-02 07:24:28'),
+(113, 8, 'Admin logged in', '2025-05-02 07:41:34'),
+(114, 8, 'Admin logged in', '2025-05-02 07:43:58'),
+(115, 8, 'Admin logged in', '2025-05-02 07:44:46'),
+(116, 9, 'User logged in', '2025-05-02 07:45:37'),
+(117, 9, 'User logged in', '2025-05-02 07:48:32'),
+(118, 9, 'User logged in', '2025-05-02 07:49:21'),
+(119, 8, 'Admin logged in', '2025-05-02 07:50:00'),
+(120, 8, 'Admin Logged Out.', '2025-05-02 07:50:37'),
+(121, 9, 'User logged in', '2025-05-02 07:50:45'),
+(122, 8, 'Admin logged in', '2025-05-02 08:02:00'),
+(123, 8, 'Admin logged in', '2025-05-02 08:03:57'),
+(124, 8, 'Admin logged in', '2025-05-02 08:08:10'),
+(125, 9, 'User logged in', '2025-05-02 08:09:31'),
+(126, 9, 'User logged in', '2025-05-02 08:11:25'),
+(127, 9, 'User logged in', '2025-05-02 13:22:22'),
+(128, 9, 'User logged in', '2025-05-02 13:24:18'),
+(129, 8, 'Admin logged in', '2025-05-02 13:27:50'),
+(130, 8, 'Admin Logged Out.', '2025-05-02 13:28:27'),
+(131, 9, 'User logged in', '2025-05-02 13:28:33'),
+(132, 9, 'User logged in', '2025-05-02 13:29:58'),
+(133, 9, 'User logged in', '2025-05-02 13:31:04'),
+(134, 9, 'User logged in', '2025-05-02 13:52:41'),
+(135, 8, 'Admin logged in', '2025-05-02 13:53:43'),
+(136, 8, 'Admin logged in', '2025-05-02 13:54:23'),
+(137, 8, 'Admin logged in', '2025-05-02 13:54:56'),
+(138, 8, 'Admin logged in', '2025-05-02 13:58:46'),
+(139, 8, 'Admin logged in', '2025-05-02 14:03:22'),
+(140, 8, 'Admin logged in', '2025-05-02 14:05:00'),
+(141, 8, 'Admin logged in', '2025-05-02 14:05:56'),
+(142, 8, 'Admin logged in', '2025-05-02 14:06:46'),
+(143, 8, 'Admin logged in', '2025-05-02 14:12:35'),
+(144, 8, 'Admin logged in', '2025-05-02 14:15:15'),
+(145, 8, 'Admin logged in', '2025-05-02 14:19:04'),
+(146, 8, 'Admin logged in', '2025-05-02 14:21:45'),
+(147, 8, 'Admin logged in', '2025-05-02 14:22:45'),
+(148, 9, 'User logged in', '2025-05-02 14:25:43'),
+(149, 8, 'Admin logged in', '2025-05-03 00:59:41'),
+(150, 8, 'Admin Logged Out.', '2025-05-03 00:59:49'),
+(151, 13, 'User logged in', '2025-05-03 00:59:55'),
+(152, 13, 'User logged in', '2025-05-03 01:02:55'),
+(153, 9, 'User logged in', '2025-05-03 01:15:23'),
+(154, 9, 'User logged in', '2025-05-03 01:24:04'),
+(155, 8, 'Admin logged in', '2025-05-04 06:21:41'),
+(156, 8, 'Admin Logged Out.', '2025-05-04 06:21:45');
 
 -- --------------------------------------------------------
 
@@ -152,6 +201,7 @@ CREATE TABLE `tbl_bill` (
   `b_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `bill_month` varchar(50) NOT NULL,
+  `rate_perkWh` decimal(10,2) NOT NULL DEFAULT 13.00,
   `kwh_used` int(11) NOT NULL,
   `amount_due` decimal(10,2) NOT NULL,
   `due_date` date NOT NULL,
@@ -162,8 +212,16 @@ CREATE TABLE `tbl_bill` (
 -- Dumping data for table `tbl_bill`
 --
 
-INSERT INTO `tbl_bill` (`b_id`, `user_id`, `bill_month`, `kwh_used`, `amount_due`, `due_date`, `status`) VALUES
-(1, 9, 'January', 24, 252.00, '2025-02-02', 'Paid');
+INSERT INTO `tbl_bill` (`b_id`, `user_id`, `bill_month`, `rate_perkWh`, `kwh_used`, `amount_due`, `due_date`, `status`) VALUES
+(1, 9, 'January', 13.00, 24, 252.00, '2025-02-02', 'Paid'),
+(2, 9, 'February', 13.00, 1000, 10500.00, '2025-03-04', 'Paid'),
+(3, 9, 'March', 13.00, 100, 1050.00, '2025-04-05', 'Paid'),
+(4, 9, 'January', 13.00, 500, 5250.00, '2025-02-03', 'Pending'),
+(5, 9, 'January', 13.00, 1, 0.00, '2025-02-05', 'Pending'),
+(6, 9, 'January', 13.00, 13, 0.00, '2025-02-03', 'Pending'),
+(7, 9, 'April', 13.00, 10, 0.00, '2025-05-05', 'Pending'),
+(8, 9, 'February', 13.00, 9, 0.00, '2025-03-03', 'Pending'),
+(9, 9, 'March', 13.00, 9, 117.00, '2025-04-03', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -179,6 +237,15 @@ CREATE TABLE `tbl_payment` (
   `payment_method` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tbl_payment`
+--
+
+INSERT INTO `tbl_payment` (`payment_id`, `bill_id`, `amount_paid`, `payment_date`, `payment_method`) VALUES
+(1, 2, 10500.00, '2025-05-02', 'Gcash'),
+(2, 1, 252.00, '2025-05-02', 'Gcash'),
+(3, 3, 1050.00, '2025-05-02', 'Gcash');
+
 -- --------------------------------------------------------
 
 --
@@ -192,22 +259,27 @@ CREATE TABLE `users` (
   `address` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `account_number` varchar(255) NOT NULL,
+  `account_number` varchar(255) DEFAULT NULL,
   `role` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `status` varchar(50) DEFAULT NULL,
-  `image` text NOT NULL
+  `image` text NOT NULL,
+  `recovery_phrase` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `address`, `username`, `email`, `account_number`, `role`, `password`, `status`, `image`) VALUES
-(8, 'admin', 'admin', '', 'admin', 'admin@gmail.com', '90001', 'Admin', 'JAvlGPq9JyTdtvBO6x2llnRI1+gxwIyPqCKAn3THIKk=', 'Active', ''),
-(9, 'user', 'user', '', 'user', 'user@gmail.com', '90002', 'User', '14XWNRGmRaJIdaEJ4O8dplYN2U0Um2c0lJqWVWyzRJ8=', 'Active', 'src/images/logor.png'),
-(10, 'Gojo', 'Satoru', 'Minglanilla', 'user2', 'gojo@gmail.com', '90003', 'User', 'gxwjeSjmISvtqkRRpRSs4xdFYvZ2H2oVei/lCCs24vs=', 'Active', 'src/images/logor.png'),
-(11, 'Hatsune', 'Miku', 'Naga', 'miku', 'hatsune', '90004', 'User', 'gxwjeSjmISvtqkRRpRSs4xdFYvZ2H2oVei/lCCs24vs=', 'Active', 'src/images/logor.png');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `address`, `username`, `email`, `account_number`, `role`, `password`, `status`, `image`, `recovery_phrase`) VALUES
+(8, 'admin', 'admin', 'North Korea', 'admin', 'admin@gmail.com', '90001', 'Admin', 'JAvlGPq9JyTdtvBO6x2llnRI1+gxwIyPqCKAn3THIKk=', 'Active', '', 'IqfW+BJkfGDVQmptt+Z5AxBDKWzzjeGjQuaZmmx0rRk='),
+(9, 'user', 'user', 'North Korea', 'user', 'user@gmail.com', '90002', 'User', '14XWNRGmRaJIdaEJ4O8dplYN2U0Um2c0lJqWVWyzRJ8=', 'Active', 'src/images/logor.png', 'IqfW+BJkfGDVQmptt+Z5AxBDKWzzjeGjQuaZmmx0rRk='),
+(11, 'Hatsune', 'Miku', 'Naga', 'miku', 'hatsune', '90004', 'User', 'gxwjeSjmISvtqkRRpRSs4xdFYvZ2H2oVei/lCCs24vs=', 'Active', 'src/images/logor.png', 'IqfW+BJkfGDVQmptt+Z5AxBDKWzzjeGjQuaZmmx0rRk='),
+(12, 'Windows', '10', 'Microsoft', 'win10', 'windows@gmail.com', '1234567890', 'User', 'sVLY2+kTYBdEY2gDPuXxfnvvIEvDOHucJDC3HxBOheA=', 'Active', 'src/images/logor.png', 'IqfW+BJkfGDVQmptt+Z5AxBDKWzzjeGjQuaZmmx0rRk='),
+(13, 'Windows', 'Server', 'Microsoft', 'server', 'server@gmail.com', '12345678901', 'User', 'FL8HXJBGCr+ZLt7V6Adm3EdCKezDOnK2PmhEzOSl8yw=', 'Active', 'src/images/logor.png', 'IqfW+BJkfGDVQmptt+Z5AxBDKWzzjeGjQuaZmmx0rRk='),
+(14, 'qweqwe', 'qweqw', 'eqweq', 'qweqwe', 'weqweqwe@gmail.com', '12345678902', 'User', 'yf6FTqafwKJSNA4VKGS1ObEWw2zxrEGWUuGCbDBx1e0=', 'Pending', 'src/images/logor.png', 'IqfW+BJkfGDVQmptt+Z5AxBDKWzzjeGjQuaZmmx0rRk='),
+(15, 'qweqwe', 'qweqweq', 'weqeqwe', 'qweqw', 'qweqwe@gmail.com', '1234567891', 'User', 'yf6FTqafwKJSNA4VKGS1ObEWw2zxrEGWUuGCbDBx1e0=', 'Pending', 'src/images/logor.png', 'IqfW+BJkfGDVQmptt+Z5AxBDKWzzjeGjQuaZmmx0rRk='),
+(16, 'Hello', 'World', 'Earth', 'hello', 'hello@gmail.com', '9876543561', 'User', 'iafm6rvEyUdyd+ybJGxkF9w1LmlBi/PvTXXpwZu77dY=', 'Active', 'src/images/logor.png', 'IqfW+BJkfGDVQmptt+Z5AxBDKWzzjeGjQuaZmmx0rRk=');
 
 --
 -- Indexes for dumped tables
@@ -248,25 +320,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `logID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `logID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
 -- AUTO_INCREMENT for table `tbl_bill`
 --
 ALTER TABLE `tbl_bill`
-  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `b_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
@@ -276,7 +348,7 @@ ALTER TABLE `users`
 -- Constraints for table `logs`
 --
 ALTER TABLE `logs`
-  ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_bill`

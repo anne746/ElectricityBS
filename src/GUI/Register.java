@@ -53,12 +53,14 @@ public class Register extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         emailfield = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        adaw = new javax.swing.JLabel();
         rolecombobox = new javax.swing.JComboBox<>();
         usernamefield1 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         accnumber = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        secretanswer = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,17 +72,17 @@ public class Register extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Create New Account");
-        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 900, -1));
+        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 900, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("First Name");
-        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
+        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
         firstnamefield.setBackground(new java.awt.Color(255, 255, 255));
         firstnamefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         firstnamefield.setPreferredSize(new java.awt.Dimension(350, 40));
-        bg.add(firstnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
+        bg.add(firstnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
         loginbtn.setBackground(new java.awt.Color(46, 134, 222));
         loginbtn.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -91,7 +93,7 @@ public class Register extends javax.swing.JFrame {
                 loginbtnMouseClicked(evt);
             }
         });
-        bg.add(loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 550, -1, -1));
+        bg.add(loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 580, -1, -1));
 
         registerbtn.setBackground(new java.awt.Color(46, 134, 222));
         registerbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -104,73 +106,73 @@ public class Register extends javax.swing.JFrame {
                 registerbtnActionPerformed(evt);
             }
         });
-        bg.add(registerbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, -1, -1));
+        bg.add(registerbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 530, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Password");
-        bg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, -1, -1));
+        bg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Already have an account?");
-        bg.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 550, -1, -1));
+        bg.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 580, -1, -1));
 
         passwordfield.setBackground(new java.awt.Color(255, 255, 255));
         passwordfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         passwordfield.setPreferredSize(new java.awt.Dimension(350, 40));
-        bg.add(passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, -1));
+        bg.add(passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
 
         lastnamefield.setBackground(new java.awt.Color(255, 255, 255));
         lastnamefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         lastnamefield.setPreferredSize(new java.awt.Dimension(350, 40));
-        bg.add(lastnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, -1, -1));
+        bg.add(lastnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Last Name");
-        bg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, -1, -1));
+        bg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, -1, -1));
 
         addressfield.setBackground(new java.awt.Color(255, 255, 255));
         addressfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         addressfield.setPreferredSize(new java.awt.Dimension(350, 40));
-        bg.add(addressfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+        bg.add(addressfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Address");
-        bg.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+        bg.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
         emailfield.setBackground(new java.awt.Color(255, 255, 255));
         emailfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         emailfield.setPreferredSize(new java.awt.Dimension(350, 40));
-        bg.add(emailfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, -1, -1));
+        bg.add(emailfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Role");
-        bg.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, -1, -1));
+        bg.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Customer Account Number");
-        bg.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, -1));
+        adaw.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        adaw.setForeground(new java.awt.Color(0, 0, 0));
+        adaw.setText("What's your first pet's name?");
+        bg.add(adaw, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, -1, -1));
 
         rolecombobox.setBackground(new java.awt.Color(255, 255, 255));
         rolecombobox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rolecombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Role", "User", "Admin", " " }));
         rolecombobox.setPreferredSize(new java.awt.Dimension(350, 40));
-        bg.add(rolecombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 350, 40));
+        bg.add(rolecombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 350, 40));
 
         usernamefield1.setBackground(new java.awt.Color(255, 255, 255));
         usernamefield1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         usernamefield1.setPreferredSize(new java.awt.Dimension(350, 40));
-        bg.add(usernamefield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, -1));
+        bg.add(usernamefield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Username");
-        bg.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+        bg.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
         accnumber.setBackground(new java.awt.Color(255, 255, 255));
         accnumber.setText("ex. 1234567890");
@@ -181,12 +183,27 @@ public class Register extends javax.swing.JFrame {
                 accnumberActionPerformed(evt);
             }
         });
-        bg.add(accnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, -1, -1));
+        bg.add(accnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Email");
-        bg.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, -1, -1));
+        bg.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, -1, -1));
+
+        secretanswer.setBackground(new java.awt.Color(255, 255, 255));
+        secretanswer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        secretanswer.setPreferredSize(new java.awt.Dimension(350, 40));
+        secretanswer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secretanswerActionPerformed(evt);
+            }
+        });
+        bg.add(secretanswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Customer Account Number");
+        bg.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -227,7 +244,9 @@ public class Register extends javax.swing.JFrame {
         String password = new String(passwordfield.getPassword()).trim();
         String role = (String) rolecombobox.getSelectedItem();
         String acc_number = accnumber.getText().trim();
-        if (firstname.isEmpty() || lastname.isEmpty() || address.isEmpty() || username.isEmpty() || email.isEmpty() || password.isEmpty() || role == null || role.equals("Select Role")) {
+        String secretans = secretanswer.getText().trim();
+        
+        if (firstname.isEmpty() || lastname.isEmpty() || address.isEmpty() || username.isEmpty() || email.isEmpty() || password.isEmpty() || role == null || role.equals("Select Role") || secretans.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all fields and select a valid role.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -275,9 +294,9 @@ public class Register extends javax.swing.JFrame {
 
             // Hash the password before storing
             String hashedPassword = config.connectDB.hashPassword(password);
-
+            String hashedsecretans = config.connectDB.hashPassword(secretans);
             // Insert new user using prepared statement
-            String insertSql = "INSERT INTO users (firstname, lastname, address, username, email, role, password, status, image, account_number) VALUES (?, ?, ?, ?, ?, ?, ?, 'Pending', ?, ?)";
+            String insertSql = "INSERT INTO users (firstname, lastname, address, username, email, role, password, status, image, account_number, recovery_phrase) VALUES (?, ?, ?, ?, ?, ?, ?, 'Pending', ?, ?, ?)";
             try (PreparedStatement insertStmt = conn.prepareStatement(insertSql)) {
                 insertStmt.setString(1, firstname);
                 insertStmt.setString(2, lastname);
@@ -288,6 +307,7 @@ public class Register extends javax.swing.JFrame {
                 insertStmt.setString(7, hashedPassword);
                 insertStmt.setString(8, "src/images/logor.png");
                 insertStmt.setString(9, acc_number);
+                insertStmt.setString(10, hashedsecretans);
 
                 int result = insertStmt.executeUpdate();
                 if (result > 0) {
@@ -320,6 +340,10 @@ public class Register extends javax.swing.JFrame {
     private void accnumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accnumberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_accnumberActionPerformed
+
+    private void secretanswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secretanswerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_secretanswerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -358,25 +382,27 @@ public class Register extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField accnumber;
+    private javax.swing.JLabel adaw;
     private javax.swing.JTextField addressfield;
     private javax.swing.JPanel bg;
     private javax.swing.JTextField emailfield;
     private javax.swing.JTextField firstnamefield;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField lastnamefield;
     private javax.swing.JLabel loginbtn;
     private javax.swing.JPasswordField passwordfield;
     private javax.swing.JButton registerbtn;
     private javax.swing.JComboBox<String> rolecombobox;
+    private javax.swing.JTextField secretanswer;
     private javax.swing.JTextField usernamefield1;
     // End of variables declaration//GEN-END:variables
 }
