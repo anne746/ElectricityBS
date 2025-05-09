@@ -74,16 +74,13 @@ public class AddBills extends javax.swing.JFrame {
         jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 60));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Due Date (MM/DD/YYYY)");
         jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 170, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("kWh");
         jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
-        monthcombobox.setBackground(new java.awt.Color(255, 255, 255));
         monthcombobox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         monthcombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Month", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "December" }));
         monthcombobox.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -96,7 +93,6 @@ public class AddBills extends javax.swing.JFrame {
 
         addbillbtn.setBackground(new java.awt.Color(46, 134, 222));
         addbillbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addbillbtn.setForeground(new java.awt.Color(255, 255, 255));
         addbillbtn.setText("Add");
         addbillbtn.setBorder(null);
         addbillbtn.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -107,27 +103,22 @@ public class AddBills extends javax.swing.JFrame {
         });
         jPanel5.add(addbillbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 310, -1));
 
-        kWh.setBackground(new java.awt.Color(255, 255, 255));
         kWh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         kWh.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel5.add(kWh, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 170, -1));
 
-        accountnumber.setBackground(new java.awt.Color(255, 255, 255));
         accountnumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         accountnumber.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel5.add(accountnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 170, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Account Number");
         jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 110, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Month");
         jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 110, -1));
 
-        duedate.setBackground(new java.awt.Color(255, 255, 255));
         duedate.setToolTipText("");
         duedate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         duedate.setName(""); // NOI18N

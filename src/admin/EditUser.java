@@ -96,50 +96,41 @@ public class EditUser extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 60));
 
-        firstnamefield.setBackground(new java.awt.Color(255, 255, 255));
         firstnamefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         firstnamefield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel1.add(firstnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 160, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("First Name");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 70, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Role");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
 
-        rolecombobox.setBackground(new java.awt.Color(255, 255, 255));
         rolecombobox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         rolecombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Role", "User", "Admin", " " }));
         rolecombobox.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel1.add(rolecombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 160, 40));
 
-        lastnamefield.setBackground(new java.awt.Color(255, 255, 255));
         lastnamefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         lastnamefield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel1.add(lastnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Last Name");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, -1, -1));
 
-        emailfield.setBackground(new java.awt.Color(255, 255, 255));
         emailfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         emailfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel1.add(emailfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 160, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Email");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         updateUser.setBackground(new java.awt.Color(46, 134, 222));
         updateUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        updateUser.setForeground(new java.awt.Color(255, 255, 255));
         updateUser.setText("Update");
         updateUser.setBorder(null);
         updateUser.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -150,25 +141,21 @@ public class EditUser extends javax.swing.JFrame {
         });
         jPanel1.add(updateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 310, -1));
 
-        passwordfield.setBackground(new java.awt.Color(255, 255, 255));
         passwordfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         passwordfield.setEnabled(false);
         passwordfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel1.add(passwordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 160, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Password");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
 
-        usernamefield.setBackground(new java.awt.Color(255, 255, 255));
         usernamefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         usernamefield.setEnabled(false);
         usernamefield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel1.add(usernamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 160, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Username");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 70, -1));
 

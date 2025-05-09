@@ -158,28 +158,24 @@ public class StatementOfAccount extends javax.swing.JFrame {
 
         customername.setBackground(new java.awt.Color(46, 134, 222));
         customername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        customername.setForeground(new java.awt.Color(0, 0, 0));
         customername.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         customername.setText("Name:");
         jPanel1.add(customername, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 270, 30));
 
         address.setBackground(new java.awt.Color(46, 134, 222));
         address.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        address.setForeground(new java.awt.Color(0, 0, 0));
         address.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         address.setText("address");
         jPanel1.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 270, 30));
 
         customeraccountnumber1.setBackground(new java.awt.Color(46, 134, 222));
         customeraccountnumber1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        customeraccountnumber1.setForeground(new java.awt.Color(0, 0, 0));
         customeraccountnumber1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         customeraccountnumber1.setText("AccNumber");
         jPanel1.add(customeraccountnumber1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 270, 30));
 
         email.setBackground(new java.awt.Color(46, 134, 222));
         email.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        email.setForeground(new java.awt.Color(0, 0, 0));
         email.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         email.setText("email");
         jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 270, 30));
@@ -200,21 +196,18 @@ public class StatementOfAccount extends javax.swing.JFrame {
 
         totalamountdue.setBackground(new java.awt.Color(46, 134, 222));
         totalamountdue.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        totalamountdue.setForeground(new java.awt.Color(0, 0, 0));
         totalamountdue.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         totalamountdue.setText("10,000.00");
         jPanel1.add(totalamountdue, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 440, 80, 30));
 
         address2.setBackground(new java.awt.Color(46, 134, 222));
         address2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        address2.setForeground(new java.awt.Color(0, 0, 0));
         address2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         address2.setText("Total Amount Due:");
         jPanel1.add(address2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 120, 30));
 
         closebtn.setBackground(new java.awt.Color(46, 134, 222));
         closebtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        closebtn.setForeground(new java.awt.Color(255, 255, 255));
         closebtn.setText("Close");
         closebtn.setBorder(null);
         closebtn.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -232,7 +225,6 @@ public class StatementOfAccount extends javax.swing.JFrame {
 
         printreceipt1.setBackground(new java.awt.Color(46, 134, 222));
         printreceipt1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        printreceipt1.setForeground(new java.awt.Color(255, 255, 255));
         printreceipt1.setText("Print");
         printreceipt1.setBorder(null);
         printreceipt1.setPreferredSize(new java.awt.Dimension(350, 40));

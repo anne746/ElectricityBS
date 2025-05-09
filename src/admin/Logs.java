@@ -266,7 +266,6 @@ public class Logs extends javax.swing.JFrame {
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
-        logstable.setBackground(new java.awt.Color(255, 255, 255));
         logstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -279,14 +278,12 @@ public class Logs extends javax.swing.JFrame {
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 640, 430));
 
-        searchfield.setBackground(new java.awt.Color(255, 255, 255));
         searchfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         searchfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(searchfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 480, -1));
 
         searchbtn.setBackground(new java.awt.Color(44, 62, 80));
         searchbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        searchbtn.setForeground(new java.awt.Color(255, 255, 255));
         searchbtn.setText("Search");
         searchbtn.setBorder(null);
         searchbtn.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -299,7 +296,6 @@ public class Logs extends javax.swing.JFrame {
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Logs");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 190, 70));

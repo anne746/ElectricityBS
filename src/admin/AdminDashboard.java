@@ -265,7 +265,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
-        usertable.setBackground(new java.awt.Color(255, 255, 255));
         usertable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -280,30 +279,25 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Welcome,");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 90, 20));
 
         welcometxt.setBackground(new java.awt.Color(0, 0, 0));
         welcometxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        welcometxt.setForeground(new java.awt.Color(0, 0, 0));
         welcometxt.setText("Admin!");
         jPanel3.add(welcometxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 80, 20));
 
         welcometxt1.setBackground(new java.awt.Color(0, 0, 0));
         welcometxt1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        welcometxt1.setForeground(new java.awt.Color(0, 0, 0));
         welcometxt1.setText("Manage Users");
         jPanel3.add(welcometxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 130, 20));
 
-        searchfield.setBackground(new java.awt.Color(255, 255, 255));
         searchfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         searchfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(searchfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 480, -1));
 
         searchbtn.setBackground(new java.awt.Color(44, 62, 80));
         searchbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        searchbtn.setForeground(new java.awt.Color(255, 255, 255));
         searchbtn.setText("Search");
         searchbtn.setBorder(null);
         searchbtn.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -316,7 +310,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         activateuser.setBackground(new java.awt.Color(44, 62, 80));
         activateuser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        activateuser.setForeground(new java.awt.Color(255, 255, 255));
         activateuser.setText("Activate");
         activateuser.setBorder(null);
         activateuser.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -329,7 +322,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         adduser.setBackground(new java.awt.Color(44, 62, 80));
         adduser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        adduser.setForeground(new java.awt.Color(255, 255, 255));
         adduser.setText("Add");
         adduser.setBorder(null);
         adduser.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -342,7 +334,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         edituser.setBackground(new java.awt.Color(44, 62, 80));
         edituser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        edituser.setForeground(new java.awt.Color(255, 255, 255));
         edituser.setText("Edit");
         edituser.setBorder(null);
         edituser.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -355,7 +346,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         deleteuser.setBackground(new java.awt.Color(44, 62, 80));
         deleteuser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        deleteuser.setForeground(new java.awt.Color(255, 255, 255));
         deleteuser.setText("Delete");
         deleteuser.setBorder(null);
         deleteuser.setPreferredSize(new java.awt.Dimension(350, 40));

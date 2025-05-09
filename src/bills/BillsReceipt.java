@@ -134,7 +134,6 @@ public class BillsReceipt extends javax.swing.JFrame {
 
         customername.setBackground(new java.awt.Color(46, 134, 222));
         customername.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        customername.setForeground(new java.awt.Color(0, 0, 0));
         customername.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         customername.setText("Name:");
         jPanel1.add(customername, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 110, 30));
@@ -177,49 +176,42 @@ public class BillsReceipt extends javax.swing.JFrame {
 
         customeraccountnumber.setBackground(new java.awt.Color(46, 134, 222));
         customeraccountnumber.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        customeraccountnumber.setForeground(new java.awt.Color(0, 0, 0));
         customeraccountnumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         customeraccountnumber.setText("AccNumber");
         jPanel1.add(customeraccountnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 110, 30));
 
         billid.setBackground(new java.awt.Color(46, 134, 222));
         billid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        billid.setForeground(new java.awt.Color(0, 0, 0));
         billid.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         billid.setText("BillID");
         jPanel1.add(billid, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, 160, 30));
 
         paymentid.setBackground(new java.awt.Color(46, 134, 222));
         paymentid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        paymentid.setForeground(new java.awt.Color(0, 0, 0));
         paymentid.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         paymentid.setText("PaymentID");
         jPanel1.add(paymentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 160, 30));
 
         paymentdate.setBackground(new java.awt.Color(46, 134, 222));
         paymentdate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        paymentdate.setForeground(new java.awt.Color(0, 0, 0));
         paymentdate.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         paymentdate.setText("PaymentDate");
         jPanel1.add(paymentdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 160, 30));
 
         paymentmethod.setBackground(new java.awt.Color(46, 134, 222));
         paymentmethod.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        paymentmethod.setForeground(new java.awt.Color(0, 0, 0));
         paymentmethod.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         paymentmethod.setText("PaymentMethod");
         jPanel1.add(paymentmethod, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, 160, 30));
 
         amtpaid.setBackground(new java.awt.Color(46, 134, 222));
         amtpaid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        amtpaid.setForeground(new java.awt.Color(0, 0, 0));
         amtpaid.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         amtpaid.setText("AmountPaid");
         jPanel1.add(amtpaid, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 160, 30));
 
         printreceipt.setBackground(new java.awt.Color(46, 134, 222));
         printreceipt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        printreceipt.setForeground(new java.awt.Color(255, 255, 255));
         printreceipt.setText("Print");
         printreceipt.setBorder(null);
         printreceipt.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -237,7 +229,6 @@ public class BillsReceipt extends javax.swing.JFrame {
 
         closebtn.setBackground(new java.awt.Color(46, 134, 222));
         closebtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        closebtn.setForeground(new java.awt.Color(255, 255, 255));
         closebtn.setText("Close");
         closebtn.setBorder(null);
         closebtn.setPreferredSize(new java.awt.Dimension(350, 40));

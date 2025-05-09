@@ -84,39 +84,32 @@ public class SettingsAdmin extends javax.swing.JFrame {
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Settings");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 190, 70));
 
-        newpasswordfield.setBackground(new java.awt.Color(255, 255, 255));
         newpasswordfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         newpasswordfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(newpasswordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("New Password");
         jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, -1));
 
-        oldpasswordfield.setBackground(new java.awt.Color(255, 255, 255));
         oldpasswordfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         oldpasswordfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(oldpasswordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
 
-        confirmpassfield.setBackground(new java.awt.Color(255, 255, 255));
         confirmpassfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         confirmpassfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(confirmpassfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Confirm Password");
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
 
         changepassbtn.setBackground(new java.awt.Color(46, 134, 222));
         changepassbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        changepassbtn.setForeground(new java.awt.Color(255, 255, 255));
         changepassbtn.setText("Change");
         changepassbtn.setBorder(null);
         changepassbtn.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -302,13 +295,11 @@ public class SettingsAdmin extends javax.swing.JFrame {
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Electric Rate per kWh");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, -1, -1));
 
         changerate.setBackground(new java.awt.Color(46, 134, 222));
         changerate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        changerate.setForeground(new java.awt.Color(255, 255, 255));
         changerate.setText("Change");
         changerate.setBorder(null);
         changerate.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -325,11 +316,9 @@ public class SettingsAdmin extends javax.swing.JFrame {
         jPanel3.add(changerate, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 240, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("Old Password");
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
 
-        changeratefield.setBackground(new java.awt.Color(255, 255, 255));
         changeratefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         changeratefield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(changeratefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 240, -1));

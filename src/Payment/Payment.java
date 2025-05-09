@@ -300,7 +300,6 @@ public class Payment extends javax.swing.JFrame {
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
-        paymenttable.setBackground(new java.awt.Color(255, 255, 255));
         paymenttable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -315,18 +314,15 @@ public class Payment extends javax.swing.JFrame {
 
         welcometxt1.setBackground(new java.awt.Color(0, 0, 0));
         welcometxt1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        welcometxt1.setForeground(new java.awt.Color(0, 0, 0));
         welcometxt1.setText(" Payment History");
         jPanel3.add(welcometxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 220, 50));
 
-        searchfield.setBackground(new java.awt.Color(255, 255, 255));
         searchfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         searchfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(searchfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 480, -1));
 
         searchbtn.setBackground(new java.awt.Color(44, 62, 80));
         searchbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        searchbtn.setForeground(new java.awt.Color(255, 255, 255));
         searchbtn.setText("Search");
         searchbtn.setBorder(null);
         searchbtn.setPreferredSize(new java.awt.Dimension(350, 40));

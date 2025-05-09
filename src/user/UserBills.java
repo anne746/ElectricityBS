@@ -159,7 +159,6 @@ public class UserBills extends javax.swing.JFrame {
         jPanel5.setPreferredSize(new java.awt.Dimension(900, 600));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        mybillstable.setBackground(new java.awt.Color(255, 255, 255));
         mybillstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -172,14 +171,12 @@ public class UserBills extends javax.swing.JFrame {
 
         jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 640, 360));
 
-        searchfield.setBackground(new java.awt.Color(255, 255, 255));
         searchfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         searchfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel5.add(searchfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 480, -1));
 
         searchbtn.setBackground(new java.awt.Color(44, 62, 80));
         searchbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        searchbtn.setForeground(new java.awt.Color(255, 255, 255));
         searchbtn.setText("Search");
         searchbtn.setBorder(null);
         searchbtn.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -192,7 +189,6 @@ public class UserBills extends javax.swing.JFrame {
 
         paymybills.setBackground(new java.awt.Color(44, 62, 80));
         paymybills.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        paymybills.setForeground(new java.awt.Color(255, 255, 255));
         paymybills.setText("Pay Bill");
         paymybills.setBorder(null);
         paymybills.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -205,7 +201,6 @@ public class UserBills extends javax.swing.JFrame {
 
         welcometxt2.setBackground(new java.awt.Color(0, 0, 0));
         welcometxt2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        welcometxt2.setForeground(new java.awt.Color(0, 0, 0));
         welcometxt2.setText("My Bills");
         jPanel5.add(welcometxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 150, 50));
 
@@ -354,7 +349,6 @@ public class UserBills extends javax.swing.JFrame {
 
         viewpaidbills.setBackground(new java.awt.Color(44, 62, 80));
         viewpaidbills.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        viewpaidbills.setForeground(new java.awt.Color(255, 255, 255));
         viewpaidbills.setText("Paid Bills");
         viewpaidbills.setBorder(null);
         viewpaidbills.addActionListener(new java.awt.event.ActionListener() {
@@ -366,7 +360,6 @@ public class UserBills extends javax.swing.JFrame {
 
         viewpendingbills.setBackground(new java.awt.Color(44, 62, 80));
         viewpendingbills.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        viewpendingbills.setForeground(new java.awt.Color(255, 255, 255));
         viewpendingbills.setText("Pending Bills");
         viewpendingbills.setBorder(null);
         viewpendingbills.addActionListener(new java.awt.event.ActionListener() {
@@ -378,7 +371,6 @@ public class UserBills extends javax.swing.JFrame {
 
         viewstatementofaccount.setBackground(new java.awt.Color(44, 62, 80));
         viewstatementofaccount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        viewstatementofaccount.setForeground(new java.awt.Color(255, 255, 255));
         viewstatementofaccount.setText("Statement");
         viewstatementofaccount.setBorder(null);
         viewstatementofaccount.addActionListener(new java.awt.event.ActionListener() {
@@ -390,7 +382,6 @@ public class UserBills extends javax.swing.JFrame {
 
         viewreceipt.setBackground(new java.awt.Color(44, 62, 80));
         viewreceipt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        viewreceipt.setForeground(new java.awt.Color(255, 255, 255));
         viewreceipt.setText("Receipt");
         viewreceipt.setBorder(null);
         viewreceipt.addActionListener(new java.awt.event.ActionListener() {

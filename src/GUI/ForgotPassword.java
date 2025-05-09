@@ -63,7 +63,6 @@ public class ForgotPassword extends javax.swing.JFrame {
 
         jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 60));
 
-        secretans.setBackground(new java.awt.Color(255, 255, 255));
         secretans.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         secretans.setPreferredSize(new java.awt.Dimension(350, 40));
         secretans.addActionListener(new java.awt.event.ActionListener() {
@@ -74,23 +73,19 @@ public class ForgotPassword extends javax.swing.JFrame {
         jPanel5.add(secretans, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 380, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("What's your first pet's name?");
         jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 340, -1));
 
-        emailfield2.setBackground(new java.awt.Color(255, 255, 255));
         emailfield2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         emailfield2.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel5.add(emailfield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 380, -1));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Email");
         jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
 
         forgotpassbtn.setBackground(new java.awt.Color(46, 134, 222));
         forgotpassbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        forgotpassbtn.setForeground(new java.awt.Color(255, 255, 255));
         forgotpassbtn.setText("Submit");
         forgotpassbtn.setBorder(null);
         forgotpassbtn.setPreferredSize(new java.awt.Dimension(350, 40));

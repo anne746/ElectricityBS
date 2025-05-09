@@ -153,11 +153,9 @@ public class PayBill extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 60));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Amount Due");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 170, -1));
 
-        methodcombobox.setBackground(new java.awt.Color(255, 255, 255));
         methodcombobox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         methodcombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Payment Method", "Gcash", "Cash", "Bank" }));
         methodcombobox.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -170,7 +168,6 @@ public class PayBill extends javax.swing.JFrame {
 
         paybill.setBackground(new java.awt.Color(46, 134, 222));
         paybill.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        paybill.setForeground(new java.awt.Color(255, 255, 255));
         paybill.setText("Pay");
         paybill.setBorder(null);
         paybill.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -181,22 +178,18 @@ public class PayBill extends javax.swing.JFrame {
         });
         jPanel1.add(paybill, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 310, -1));
 
-        enteramountfield.setBackground(new java.awt.Color(255, 255, 255));
         enteramountfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         enteramountfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel1.add(enteramountfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 170, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Account Number");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 110, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Payment Method");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 110, -1));
 
-        amountduefield.setBackground(new java.awt.Color(255, 255, 255));
         amountduefield.setToolTipText("");
         amountduefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         amountduefield.setEnabled(false);
@@ -204,36 +197,30 @@ public class PayBill extends javax.swing.JFrame {
         amountduefield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel1.add(amountduefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 170, -1));
 
-        accountnumber.setBackground(new java.awt.Color(255, 255, 255));
         accountnumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         accountnumber.setEnabled(false);
         accountnumber.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel1.add(accountnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 170, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Enter Amount");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 110, -1));
 
-        monthof1.setBackground(new java.awt.Color(255, 255, 255));
         monthof1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         monthof1.setEnabled(false);
         monthof1.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel1.add(monthof1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 170, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Month");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 110, -1));
 
-        change.setBackground(new java.awt.Color(255, 255, 255));
         change.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         change.setEnabled(false);
         change.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel1.add(change, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 170, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Change");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 110, -1));
 

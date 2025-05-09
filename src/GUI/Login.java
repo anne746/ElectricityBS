@@ -55,18 +55,15 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logor.png"))); // NOI18N
         jLabel1.setText("  PowerPay");
         bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 900, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Username");
         bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
 
-        UserField.setBackground(new java.awt.Color(255, 255, 255));
         UserField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         UserField.setPreferredSize(new java.awt.Dimension(350, 40));
         bg.add(UserField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
@@ -84,7 +81,6 @@ public class Login extends javax.swing.JFrame {
 
         loginbtn.setBackground(new java.awt.Color(46, 134, 222));
         loginbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        loginbtn.setForeground(new java.awt.Color(255, 255, 255));
         loginbtn.setText("Login");
         loginbtn.setBorder(null);
         loginbtn.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -96,7 +92,6 @@ public class Login extends javax.swing.JFrame {
         bg.add(loginbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Password");
         bg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, -1));
 
@@ -112,20 +107,17 @@ public class Login extends javax.swing.JFrame {
         });
         bg.add(forgotpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 190, -1));
 
-        PasswordField.setBackground(new java.awt.Color(255, 255, 255));
         PasswordField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         PasswordField.setPreferredSize(new java.awt.Dimension(350, 40));
         bg.add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Login to Your Account");
         bg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 900, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Don't have an account?");
         bg.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, -1, -1));
 

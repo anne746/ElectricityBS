@@ -244,7 +244,6 @@ public class Bills extends javax.swing.JFrame {
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
-        billstable.setBackground(new java.awt.Color(255, 255, 255));
         billstable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -259,18 +258,15 @@ public class Bills extends javax.swing.JFrame {
 
         welcometxt1.setBackground(new java.awt.Color(0, 0, 0));
         welcometxt1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        welcometxt1.setForeground(new java.awt.Color(0, 0, 0));
         welcometxt1.setText("Manage Bills");
         jPanel3.add(welcometxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 150, 50));
 
-        searchfield.setBackground(new java.awt.Color(255, 255, 255));
         searchfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         searchfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(searchfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 480, -1));
 
         searchbtn.setBackground(new java.awt.Color(44, 62, 80));
         searchbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        searchbtn.setForeground(new java.awt.Color(255, 255, 255));
         searchbtn.setText("Search");
         searchbtn.setBorder(null);
         searchbtn.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -283,7 +279,6 @@ public class Bills extends javax.swing.JFrame {
 
         addbills.setBackground(new java.awt.Color(44, 62, 80));
         addbills.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addbills.setForeground(new java.awt.Color(255, 255, 255));
         addbills.setText("Add");
         addbills.setBorder(null);
         addbills.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -296,7 +291,6 @@ public class Bills extends javax.swing.JFrame {
 
         editbill.setBackground(new java.awt.Color(44, 62, 80));
         editbill.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        editbill.setForeground(new java.awt.Color(255, 255, 255));
         editbill.setText("Edit");
         editbill.setBorder(null);
         editbill.setPreferredSize(new java.awt.Dimension(350, 40));

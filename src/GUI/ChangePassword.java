@@ -65,28 +65,23 @@ public class ChangePassword extends javax.swing.JFrame {
         jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 60));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Confirm Password");
         jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
 
-        confirmpassfield.setBackground(new java.awt.Color(255, 255, 255));
         confirmpassfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         confirmpassfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel5.add(confirmpassfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
 
-        newpasswordfield.setBackground(new java.awt.Color(255, 255, 255));
         newpasswordfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         newpasswordfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel5.add(newpasswordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("New Password");
         jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
 
         changepassbtn1.setBackground(new java.awt.Color(46, 134, 222));
         changepassbtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        changepassbtn1.setForeground(new java.awt.Color(255, 255, 255));
         changepassbtn1.setText("Change");
         changepassbtn1.setBorder(null);
         changepassbtn1.setPreferredSize(new java.awt.Dimension(350, 40));

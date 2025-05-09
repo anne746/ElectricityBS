@@ -248,13 +248,11 @@ public class Profile extends javax.swing.JFrame {
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Profile");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 190, 40));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("ID");
         jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 160, -1));
 
@@ -272,13 +270,11 @@ public class Profile extends javax.swing.JFrame {
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 150, 130));
 
-        idfield.setBackground(new java.awt.Color(255, 255, 255));
         idfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         idfield.setEnabled(false);
         idfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(idfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 180, -1));
 
-        firstnamefield.setBackground(new java.awt.Color(255, 255, 255));
         firstnamefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         firstnamefield.setEnabled(false);
         firstnamefield.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -289,34 +285,28 @@ public class Profile extends javax.swing.JFrame {
         statuslabe.setText("Active");
         jPanel3.add(statuslabe, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 90, 60, -1));
 
-        lastnamefield.setBackground(new java.awt.Color(255, 255, 255));
         lastnamefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         lastnamefield.setEnabled(false);
         lastnamefield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(lastnamefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, 180, -1));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Last Name");
         jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, 160, -1));
 
-        emailfield.setBackground(new java.awt.Color(255, 255, 255));
         emailfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         emailfield.setEnabled(false);
         emailfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(emailfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 180, -1));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Email");
         jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 160, -1));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Account Number");
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 320, 180, -1));
 
-        accnumfield.setBackground(new java.awt.Color(255, 255, 255));
         accnumfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         accnumfield.setEnabled(false);
         accnumfield.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -328,18 +318,15 @@ public class Profile extends javax.swing.JFrame {
         jPanel3.add(accnumfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 180, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("First Name");
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 160, -1));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("Status:");
         jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 60, -1));
 
         removeProfile.setBackground(new java.awt.Color(46, 134, 222));
         removeProfile.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        removeProfile.setForeground(new java.awt.Color(255, 255, 255));
         removeProfile.setText("Remove");
         removeProfile.setBorder(null);
         removeProfile.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -352,7 +339,6 @@ public class Profile extends javax.swing.JFrame {
 
         selectProfile.setBackground(new java.awt.Color(46, 134, 222));
         selectProfile.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        selectProfile.setForeground(new java.awt.Color(255, 255, 255));
         selectProfile.setText("Select");
         selectProfile.setBorder(null);
         selectProfile.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -363,7 +349,6 @@ public class Profile extends javax.swing.JFrame {
         });
         jPanel3.add(selectProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 90, -1));
 
-        addressfield.setBackground(new java.awt.Color(255, 255, 255));
         addressfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         addressfield.setEnabled(false);
         addressfield.setPreferredSize(new java.awt.Dimension(350, 40));
@@ -375,7 +360,6 @@ public class Profile extends javax.swing.JFrame {
         jPanel3.add(addressfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 180, -1));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("Address");
         jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 160, -1));
 

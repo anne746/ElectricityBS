@@ -67,6 +67,7 @@ public class Settings extends javax.swing.JFrame {
         changepassbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(244, 246, 249));
         jPanel3.setPreferredSize(new java.awt.Dimension(900, 600));
@@ -217,47 +218,44 @@ public class Settings extends javax.swing.JFrame {
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Settings");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 190, 70));
 
-        newpasswordfield.setBackground(new java.awt.Color(255, 255, 255));
         newpasswordfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         newpasswordfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(newpasswordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("New Password");
         jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, -1));
 
-        oldpasswordfield.setBackground(new java.awt.Color(255, 255, 255));
         oldpasswordfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         oldpasswordfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(oldpasswordfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Old Password");
         jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
 
-        confirmpassfield.setBackground(new java.awt.Color(255, 255, 255));
         confirmpassfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         confirmpassfield.setPreferredSize(new java.awt.Dimension(350, 40));
         jPanel3.add(confirmpassfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Confirm Password");
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
 
-        changepassbtn.setBackground(new java.awt.Color(46, 134, 222));
+        changepassbtn.setBackground(new java.awt.Color(0, 0, 0));
         changepassbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        changepassbtn.setForeground(new java.awt.Color(255, 255, 255));
         changepassbtn.setText("Change");
         changepassbtn.setBorder(null);
         changepassbtn.setPreferredSize(new java.awt.Dimension(350, 40));
+        changepassbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changepassbtnMouseClicked(evt);
+            }
+        });
         changepassbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changepassbtnActionPerformed(evt);
@@ -265,26 +263,7 @@ public class Settings extends javax.swing.JFrame {
         });
         jPanel3.add(changepassbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
