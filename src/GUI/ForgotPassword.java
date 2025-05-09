@@ -107,7 +107,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         String recoveryPhrase = secretans.getText().trim();
 
         if (email.isEmpty() || recoveryPhrase.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Erreor", JOptionPane.ERROR_MESSAGE);
             return;
         }
 

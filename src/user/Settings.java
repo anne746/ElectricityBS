@@ -64,7 +64,7 @@ public class Settings extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         confirmpassfield = new javax.swing.JPasswordField();
         jLabel16 = new javax.swing.JLabel();
-        changepassbtn = new javax.swing.JButton();
+        changepassbtn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -246,22 +246,18 @@ public class Settings extends javax.swing.JFrame {
         jLabel16.setText("Confirm Password");
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
 
-        changepassbtn.setBackground(new java.awt.Color(0, 0, 0));
-        changepassbtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        changepassbtn.setText("Change");
-        changepassbtn.setBorder(null);
-        changepassbtn.setPreferredSize(new java.awt.Dimension(350, 40));
-        changepassbtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                changepassbtnMouseClicked(evt);
-            }
-        });
-        changepassbtn.addActionListener(new java.awt.event.ActionListener() {
+        changepassbtn1.setBackground(new java.awt.Color(0, 0, 0));
+        changepassbtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        changepassbtn1.setText("Change");
+        changepassbtn1.setBorder(null);
+        changepassbtn1.setPreferredSize(new java.awt.Dimension(350, 40));
+        
+        changepassbtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                changepassbtnActionPerformed(evt);
+                changepassbtn1ActionPerformed(evt);
             }
         });
-        jPanel3.add(changepassbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
+        jPanel3.add(changepassbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -334,9 +330,7 @@ public class Settings extends javax.swing.JFrame {
         settingsbtn.setBackground(defaultColor);
     }//GEN-LAST:event_settingsbtnMouseExited
 
-
-
-    private void changepassbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changepassbtnActionPerformed
+    private void changepassbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changepassbtn1ActionPerformed
         try {
             String oldPassRaw = new String(oldpasswordfield.getPassword()).trim();
             String newPassRaw = new String(newpasswordfield.getPassword()).trim();
@@ -413,7 +407,7 @@ public class Settings extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_changepassbtnActionPerformed
+    }//GEN-LAST:event_changepassbtn1ActionPerformed
 
     
 
@@ -455,7 +449,7 @@ public class Settings extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel billsbtn;
-    private javax.swing.JButton changepassbtn;
+    private javax.swing.JButton changepassbtn1;
     private javax.swing.JPasswordField confirmpassfield;
     private javax.swing.JPanel homebtn;
     private javax.swing.JLabel jLabel10;
