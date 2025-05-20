@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package user;
 
 import GUI.Login;
@@ -358,7 +354,7 @@ public class Settings extends javax.swing.JFrame {
 
             // Query current password hash from database
             Connection conn = connectDB.getConnection();
-            String selectQuery = "SELECT password FROM tbl_user WHERE user_id = ?";
+            String selectQuery = "SELECT password FROM users WHERE user_id = ?";
             PreparedStatement selectPst = conn.prepareStatement(selectQuery);
             selectPst.setInt(1, session.getId());
             ResultSet rs = selectPst.executeQuery();
@@ -384,7 +380,7 @@ public class Settings extends javax.swing.JFrame {
             selectPst.close();
 
             // Update password in database
-            String updateQuery = "UPDATE tbl_user SET password = ? WHERE user_id = ?";
+            String updateQuery = "UPDATE users SET password = ? WHERE user_id = ?";
             PreparedStatement pst = conn.prepareStatement(updateQuery);
             pst.setString(1, newPassHashed);
             pst.setInt(2, session.getId());
