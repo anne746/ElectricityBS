@@ -1,7 +1,13 @@
 package user;
 
 import GUI.Login;
+import config.connectDB;
+import config.usersession;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 public class UserDashboard extends javax.swing.JFrame {
@@ -14,8 +20,9 @@ public class UserDashboard extends javax.swing.JFrame {
     public UserDashboard() {
         initComponents();
         welcometxt.setText("Guest");
+        loadUserBills();
     }
-
+    connectDB db = new connectDB();
     public UserDashboard(config.usersession userSession) {
         this.currentUserSession = userSession;
         initComponents();
@@ -24,7 +31,7 @@ public class UserDashboard extends javax.swing.JFrame {
         } else {
             welcometxt.setText("Guest");
         }
-        
+        loadUserBills();
     }
    
         Color defaultColor = Color.decode("#2c3e50");
@@ -39,7 +46,65 @@ public class UserDashboard extends javax.swing.JFrame {
             System.err.println("Error logging action: " + e.getMessage());
         }
     }
-       
+     private void loadUserBills() {
+        usersession session = usersession.getInstance();
+        int userId = session.getId();
+
+        String query = "SELECT b.b_id, u.account_number, b.bill_month, b.kwh_used, b.amount_due, b.due_date, b.status " +
+                       "FROM tbl_bill b " +
+                       "JOIN users u ON b.user_id = u.id " +
+                       "WHERE b.user_id = ? AND b.status = 'Pending'";
+
+        try (Connection con = db.getConnection();
+             PreparedStatement pst = con.prepareStatement(query)) {
+
+            pst.setInt(1, userId);
+            ResultSet rs = pst.executeQuery();
+
+            java.util.List<config.billsmodel> billsList = new java.util.ArrayList<>();
+            while (rs.next()) {
+                config.billsmodel bill = new config.billsmodel(
+                    rs.getInt("b_id"),
+                    rs.getString("account_number"),
+                    rs.getString("bill_month"),
+                    rs.getInt("kwh_used"),
+                    rs.getDouble("amount_due"),
+                    rs.getDate("due_date"),
+                    rs.getString("status")
+                );
+                billsList.add(bill);
+            }
+            rs.close();
+
+            setUserBillsTableModel(billsList);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error loading bills: " + e.getMessage());
+        }
+    }
+     
+    private void setUserBillsTableModel(java.util.List<config.billsmodel> billsList) {
+        String[] columnNames = {"Bill ID", "Account Number", "Bill Month", "kWh Used", "Amount Due", "Due Date", "Status"};
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(columnNames, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // Make table cells non-editable
+            }
+        };
+        for (config.billsmodel bill : billsList) {
+            Object[] rowData = {
+                bill.getB_id(),
+                bill.getAccount_number(),
+                bill.getBill_month(),
+                bill.getKwh_used(),
+                bill.getAmount_due(),
+                bill.getDue_date(),
+                bill.getStatus()
+            };
+            model.addRow(rowData);
+        }
+        mybillstable.setModel(model);
+    }
         
           
     @SuppressWarnings("unchecked")
@@ -66,6 +131,13 @@ public class UserDashboard extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         welcometxt = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        mybillstable = new javax.swing.JTable();
+        viewreceipt = new javax.swing.JButton();
+        viewstatementofaccount = new javax.swing.JButton();
+        viewpendingbills = new javax.swing.JButton();
+        viewpaidbills = new javax.swing.JButton();
+        paymybills = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -229,6 +301,74 @@ public class UserDashboard extends javax.swing.JFrame {
         jLabel9.setText("Welcome,");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 90, 20));
 
+        mybillstable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(mybillstable);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 640, 360));
+
+        viewreceipt.setBackground(new java.awt.Color(44, 62, 80));
+        viewreceipt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        viewreceipt.setText("Receipt");
+        viewreceipt.setBorder(null);
+        viewreceipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewreceiptActionPerformed(evt);
+            }
+        });
+        jPanel3.add(viewreceipt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 110, 40));
+
+        viewstatementofaccount.setBackground(new java.awt.Color(44, 62, 80));
+        viewstatementofaccount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        viewstatementofaccount.setText("Statement");
+        viewstatementofaccount.setBorder(null);
+        viewstatementofaccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewstatementofaccountActionPerformed(evt);
+            }
+        });
+        jPanel3.add(viewstatementofaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 110, 40));
+
+        viewpendingbills.setBackground(new java.awt.Color(44, 62, 80));
+        viewpendingbills.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        viewpendingbills.setText("Pending Bills");
+        viewpendingbills.setBorder(null);
+        viewpendingbills.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewpendingbillsActionPerformed(evt);
+            }
+        });
+        jPanel3.add(viewpendingbills, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 110, 40));
+
+        viewpaidbills.setBackground(new java.awt.Color(44, 62, 80));
+        viewpaidbills.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        viewpaidbills.setText("Paid Bills");
+        viewpaidbills.setBorder(null);
+        viewpaidbills.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewpaidbillsActionPerformed(evt);
+            }
+        });
+        jPanel3.add(viewpaidbills, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 110, 40));
+
+        paymybills.setBackground(new java.awt.Color(44, 62, 80));
+        paymybills.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        paymybills.setText("Pay Bill");
+        paymybills.setBorder(null);
+        paymybills.setPreferredSize(new java.awt.Dimension(350, 40));
+        paymybills.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paymybillsActionPerformed(evt);
+            }
+        });
+        jPanel3.add(paymybills, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 130, 110, 40));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, -1));
 
         pack();
@@ -300,6 +440,94 @@ public class UserDashboard extends javax.swing.JFrame {
         logoutbtn.setBackground(defaultColor);
     }//GEN-LAST:event_logoutbtnMouseExited
 
+    private void viewreceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewreceiptActionPerformed
+        int selectedRow = mybillstable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a bill to view receipt.", "No Selection", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String status = (String) mybillstable.getValueAt(selectedRow, 6);
+        if (!"Paid".equalsIgnoreCase(status)) {
+            JOptionPane.showMessageDialog(this, "Receipt is only available for paid bills.", "Invalid Selection", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int billId = (int) mybillstable.getValueAt(selectedRow, 0);
+
+        // Open BillsReceipt window and pass billId
+        bills.BillsReceipt receiptWindow = new bills.BillsReceipt();
+        receiptWindow.loadReceipt(billId);
+        receiptWindow.setVisible(true);
+    }//GEN-LAST:event_viewreceiptActionPerformed
+
+    private void viewstatementofaccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewstatementofaccountActionPerformed
+        int selectedRow = mybillstable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a bill to view statement.", "No Selection", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String status = (String) mybillstable.getValueAt(selectedRow, 6);
+        if (!"Pending".equalsIgnoreCase(status)) {
+            JOptionPane.showMessageDialog(this, "Statement of Account is only available for pending bills.", "Invalid Selection", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int billId = (int) mybillstable.getValueAt(selectedRow, 0);
+
+        // Open StatementOfAccount window and pass billId
+        bills.StatementOfAccount statementWindow = new bills.StatementOfAccount();
+        statementWindow.loadStatement(billId);
+        statementWindow.setVisible(true);
+    }//GEN-LAST:event_viewstatementofaccountActionPerformed
+
+    private void viewpendingbillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewpendingbillsActionPerformed
+        loadUserBills();
+    }//GEN-LAST:event_viewpendingbillsActionPerformed
+
+    private void viewpaidbillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewpaidbillsActionPerformed
+        // TODO add your handling code here:
+        usersession session = usersession.getInstance();
+        int userId = session.getId();
+
+        String query = "SELECT b.b_id, u.account_number, b.bill_month, b.kwh_used, b.amount_due, b.due_date, b.status " +
+        "FROM tbl_bill b " +
+        "JOIN users u ON b.user_id = u.id " +
+        "WHERE b.user_id = ? AND b.status = 'Paid'";
+
+        try (Connection con = db.getConnection();
+            PreparedStatement pst = con.prepareStatement(query)) {
+
+            pst.setInt(1, userId);
+            ResultSet rs = pst.executeQuery();
+
+            java.util.List<config.billsmodel> billsList = new java.util.ArrayList<>();
+            while (rs.next()) {
+                config.billsmodel bill = new config.billsmodel(
+                    rs.getInt("b_id"),
+                    rs.getString("account_number"),
+                    rs.getString("bill_month"),
+                    rs.getInt("kwh_used"),
+                    rs.getDouble("amount_due"),
+                    rs.getDate("due_date"),
+                    rs.getString("status")
+                );
+                billsList.add(bill);
+            }
+            rs.close();
+
+            setUserBillsTableModel(billsList);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error loading paid bills: " + e.getMessage());
+        }
+    }//GEN-LAST:event_viewpaidbillsActionPerformed
+
+    private void paymybillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymybillsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_paymybillsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -348,9 +576,16 @@ public class UserDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel logoutbtn;
+    private javax.swing.JTable mybillstable;
+    private javax.swing.JButton paymybills;
     private javax.swing.JPanel profilebtn;
     private javax.swing.JPanel settingsbtn;
+    private javax.swing.JButton viewpaidbills;
+    private javax.swing.JButton viewpendingbills;
+    private javax.swing.JButton viewreceipt;
+    private javax.swing.JButton viewstatementofaccount;
     private javax.swing.JLabel welcometxt;
     // End of variables declaration//GEN-END:variables
 }

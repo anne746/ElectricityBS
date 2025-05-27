@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2025 at 08:27 AM
+-- Generation Time: May 27, 2025 at 02:05 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -189,7 +189,25 @@ INSERT INTO `logs` (`logID`, `userID`, `action`, `date_time`) VALUES
 (153, 9, 'User logged in', '2025-05-03 01:15:23'),
 (154, 9, 'User logged in', '2025-05-03 01:24:04'),
 (155, 8, 'Admin logged in', '2025-05-04 06:21:41'),
-(156, 8, 'Admin Logged Out.', '2025-05-04 06:21:45');
+(156, 8, 'Admin Logged Out.', '2025-05-04 06:21:45'),
+(157, 8, 'Admin logged in', '2025-05-20 09:18:30'),
+(158, 8, 'Admin Logged Out.', '2025-05-20 09:18:31'),
+(159, 9, 'User logged in', '2025-05-20 09:18:38'),
+(160, 8, 'Admin logged in', '2025-05-20 09:24:28'),
+(161, 8, 'Admin logged in', '2025-05-20 09:25:06'),
+(162, 8, 'Admin logged in', '2025-05-20 09:25:49'),
+(163, 8, 'Admin logged in', '2025-05-20 09:28:24'),
+(164, 8, 'Added new user: qweqwe', '2025-05-20 09:28:37'),
+(165, 9, 'User logged in', '2025-05-27 11:38:38'),
+(166, 9, 'User logged in', '2025-05-27 11:48:45'),
+(167, 9, 'User logged out', '2025-05-27 11:48:49'),
+(168, 9, 'User logged in', '2025-05-27 11:48:55'),
+(169, 9, 'User logged in', '2025-05-27 11:51:09'),
+(170, 9, 'User logged in', '2025-05-27 11:51:33'),
+(171, 9, 'User logged in', '2025-05-27 11:53:48'),
+(172, 9, 'User logged out', '2025-05-27 11:56:18'),
+(173, 9, 'User logged in', '2025-05-27 11:57:09'),
+(174, 9, 'User logged out', '2025-05-27 11:57:40');
 
 -- --------------------------------------------------------
 
@@ -263,7 +281,7 @@ CREATE TABLE `users` (
   `role` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `status` varchar(50) DEFAULT NULL,
-  `image` text NOT NULL,
+  `image` text DEFAULT NULL,
   `recovery_phrase` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -279,7 +297,8 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `address`, `username`, `emai
 (13, 'Windows', 'Server', 'Microsoft', 'server', 'server@gmail.com', '12345678901', 'User', 'FL8HXJBGCr+ZLt7V6Adm3EdCKezDOnK2PmhEzOSl8yw=', 'Active', 'src/images/logor.png', 'IqfW+BJkfGDVQmptt+Z5AxBDKWzzjeGjQuaZmmx0rRk='),
 (14, 'qweqwe', 'qweqw', 'eqweq', 'qweqwe', 'weqweqwe@gmail.com', '12345678902', 'User', 'yf6FTqafwKJSNA4VKGS1ObEWw2zxrEGWUuGCbDBx1e0=', 'Pending', 'src/images/logor.png', 'IqfW+BJkfGDVQmptt+Z5AxBDKWzzjeGjQuaZmmx0rRk='),
 (15, 'qweqwe', 'qweqweq', 'weqeqwe', 'qweqw', 'qweqwe@gmail.com', '1234567891', 'User', 'yf6FTqafwKJSNA4VKGS1ObEWw2zxrEGWUuGCbDBx1e0=', 'Pending', 'src/images/logor.png', 'IqfW+BJkfGDVQmptt+Z5AxBDKWzzjeGjQuaZmmx0rRk='),
-(16, 'Hello', 'World', 'Earth', 'hello', 'hello@gmail.com', '9876543561', 'User', 'iafm6rvEyUdyd+ybJGxkF9w1LmlBi/PvTXXpwZu77dY=', 'Active', 'src/images/logor.png', 'IqfW+BJkfGDVQmptt+Z5AxBDKWzzjeGjQuaZmmx0rRk=');
+(16, 'Hello', 'World', 'Earth', 'hello', 'hello@gmail.com', '9876543561', 'User', 'iafm6rvEyUdyd+ybJGxkF9w1LmlBi/PvTXXpwZu77dY=', 'Active', 'src/images/logor.png', 'IqfW+BJkfGDVQmptt+Z5AxBDKWzzjeGjQuaZmmx0rRk='),
+(17, 'qweqwe', 'qweqwe', 'qweqweqwe', 'qweqwe', 'qweqwe@gmail.com', NULL, 'User', 'DR6kwlbNUKKnzL/SKz2ZWfb9ML2EC5/zx8Ze5OId8G0=', 'Pending', NULL, 'qweqwe');
 
 --
 -- Indexes for dumped tables
@@ -320,7 +339,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `logID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+  MODIFY `logID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 
 --
 -- AUTO_INCREMENT for table `tbl_bill`
@@ -338,7 +357,7 @@ ALTER TABLE `tbl_payment`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
