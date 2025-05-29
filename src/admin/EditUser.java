@@ -166,16 +166,14 @@ public class EditUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserActionPerformed
-        // Add user with validation
+         // Get updated user input
         String firstName = firstnamefield.getText().trim();
         String lastName = lastnamefield.getText().trim();
         String email = emailfield.getText().trim();
-        String username = usernamefield.getText().trim();
-        String password = new String(passwordfield.getPassword());
         String role = (String) rolecombobox.getSelectedItem();
 
         // Basic validation
-        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty() || role.equals("Select Role")) {
+        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || role.equals("Select Role")) {
             JOptionPane.showMessageDialog(this, "Please fill in all fields and select a role.");
             return;
         }
@@ -186,37 +184,29 @@ public class EditUser extends javax.swing.JFrame {
             return;
         }
 
-        // Password length validation
-        if (password.length() < 6) {
-            JOptionPane.showMessageDialog(this, "Password must be at least 6 characters long.");
-            return;
-        }
-
         try {
-            // Hash the password before storing
-            String hashedPassword = config.connectDB.hashPassword(password);
+            // Assume userId is available from the selected user to edit
 
-            // Insert user into database
-            String query = "INSERT INTO users (firstname, lastname, email, username, password, role, status) VALUES (?, ?, ?, ?, ?, ?, 'Pending')";
+            // Update user in the database (excluding username and password)
+            String query = "UPDATE users SET firstname = ?, lastname = ?, email = ?, role = ? WHERE id = ?";
             java.sql.Connection con = new config.connectDB().getConnection();
             java.sql.PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1, firstName);
             pst.setString(2, lastName);
             pst.setString(3, email);
-            pst.setString(4, username);
-            pst.setString(5, hashedPassword);
-            pst.setString(6, role);
+            pst.setString(4, role);
+            pst.setInt(5, userId);
             pst.executeUpdate();
 
-            JOptionPane.showMessageDialog(this, "User added successfully.");
-            // Log the successful addition action
+            JOptionPane.showMessageDialog(this, "User updated successfully.");
+
+            // Log the update action
             int currentUserId = config.usersession.getInstance().getId();
-            admin.ActionLogger.logAction(currentUserId, "Added new user: " + username);
-            this.dispose(); // Close the add user form after successful addition
-        } catch (java.security.NoSuchAlgorithmException e) {
-            JOptionPane.showMessageDialog(this, "Error hashing password: " + e.getMessage());
+            admin.ActionLogger.logAction(currentUserId, "Updated user info for user ID: " + userId);
+
+            this.dispose(); // Close the update form
         } catch (java.sql.SQLException e) {
-            JOptionPane.showMessageDialog(this, "Error adding user: " + e.getMessage());
+            JOptionPane.showMessageDialog(this, "Error updating user: " + e.getMessage());
         }
     }//GEN-LAST:event_updateUserActionPerformed
 
